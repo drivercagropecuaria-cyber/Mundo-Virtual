@@ -1,0 +1,11 @@
+{
+  "triangulos_sem_lod": 500000000,
+  "triangulos_com_lod": 48095800,
+  "triangulos_apos_occlusion": 33667060,
+  "triangulos_apos_frustum": 26933648,
+  "reducao_total_percent": 94.6,
+  "economia_lod_percent": 52.9,
+  "capacidade_shard_jogadores": 1000,
+  "fps_target": 60,
+  "tempo_frame_ms": 16.67
+}

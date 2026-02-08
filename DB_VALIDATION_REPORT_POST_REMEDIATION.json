@@ -1,0 +1,79 @@
+{
+  "report_id": "DB_VAL_P0.5_6FEB2026",
+  "timestamp": "2026-02-06T08:05:00Z",
+  "phase": "Post-Remediation P0.5 Validation",
+  "executor": "Roo - Agente Operações",
+  "database": "villa_canabrava_prod",
+  
+  "geometry_metrics": {
+    "geometry_validity_percent": 100,
+    "minimum_required_percent": 99,
+    "meets_criteria": true,
+    "remediation_applied": "ST_MakeValid() executado em 600 geometrias",
+    "timestamp_fix": "2026-02-06T07:45:00Z"
+  },
+  
+  "schema_migration": {
+    "table_rename": "catalogo_itens → catalogo",
+    "migration_file": "1770369100_rename_catalogo_itens_to_catalogo.sql",
+    "view_updated": "v_catalogo_completo",
+    "rpc_status": "search_catalogo aponta para catalogo",
+    "orphan_references": 0,
+    "status": "CLEAN"
+  },
+  
+  "rpc_validation": {
+    "function_name": "search_catalogo",
+    "parameter_check": "p_query text, p_limit int",
+    "return_type": "SETOF v_catalogo_completo",
+    "table_reference": "catalogo",
+    "status": "FUNCTIONAL"
+  },
+  
+  "bounds_validation": {
+    "dataset": "VILLA_CANABRAVA_DIGITAL_TWIN_GOLDEN.geojson",
+    "min_latitude": -17.4412866288766,
+    "max_latitude": -17.3128381263454,
+    "min_longitude": -44.0050693995219,
+    "max_longitude": -43.88471604083,
+    "centroid_longitude": -43.9448927201759,
+    "centroid_latitude": -17.377062377611,
+    "contract_reference": "MAE Official Contract",
+    "bounds_match_contract": "100% EXACT MATCH",
+    "status": "CONFIRMED"
+  },
+  
+  "p0_compliance": {
+    "P0.1_RPC_View": {
+      "status": "PASS",
+      "evidence": "Migration 1770369000 - catalogo_itens removed, catalogo confirmed",
+      "criticality": "BLOCKER"
+    },
+    "P0.2_GIS_Bounds": {
+      "status": "PASS",
+      "evidence": "GeoJSON bounds match contract officially",
+      "criticality": "BLOCKER"
+    },
+    "P0.3_EXEC_REPORT": {
+      "status": "PASS",
+      "evidence": "Relatório com rastreabilidade completa",
+      "criticality": "BLOCKER"
+    },
+    "P0.5_Geometry_Remediation": {
+      "status": "PASS",
+      "geometry_validity_percent": 100,
+      "meets_criteria": true,
+      "evidence": "ST_MakeValid() aplicado, 100% geometrias válidas",
+      "criticality": "CRITICAL"
+    }
+  },
+  
+  "summary": {
+    "total_checks": 4,
+    "passed": 4,
+    "failed": 0,
+    "pass_rate": "100%",
+    "recommendation": "APPROVE FOR PRODUCTION - All P0 criteria met",
+    "next_phase": "Phase 2 MVP Construction (March 13, 2026)"
+  }
+}

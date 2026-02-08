@@ -1,0 +1,7 @@
+{
+  "fases": {},
+  "timestamp_inicio": "2026-02-06T17:13:20.818063",
+  "error": "'charmap' codec can't encode character '\\u274c' in position 266: character maps to <undefined>",
+  "timestamp_fim": "2026-02-06T17:13:20.944096",
+  "duracao_total_segundos": 0.12603378295898438
+}

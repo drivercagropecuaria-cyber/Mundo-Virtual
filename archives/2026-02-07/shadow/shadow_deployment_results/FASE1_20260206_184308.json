@@ -1,0 +1,12 @@
+{
+  "phase": "FASE1",
+  "timestamp": "2026-02-06T18:43:02.017986",
+  "checks": {
+    "docker": true,
+    "postgresql": true,
+    "postgres_connection": false
+  },
+  "docker_version": "Docker version 29.2.0, build 0b9d198",
+  "psql_version": "psql (PostgreSQL) 15.15",
+  "status": "PARTIAL"
+}

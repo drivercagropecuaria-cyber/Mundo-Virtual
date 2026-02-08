@@ -1,0 +1,93 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 8px 12px;
+  border: 1px solid #d0d5e0;
+  border-radius: 6px;
+  background-color: white;
+  color: #0066cc;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.button:hover:not(:disabled) {
+  background-color: #f0f2f5;
+  border-color: #bcc0cc;
+}
+
+.button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+  background-color: #fafafa;
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pageButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #d0d5e0;
+  border-radius: 6px;
+  background-color: white;
+  color: #555;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pageButton:hover:not(:disabled) {
+  background-color: #f0f2f5;
+  border-color: #0066cc;
+}
+
+.pageButton.active {
+  background-color: #0066cc;
+  color: white;
+  border-color: #0066cc;
+  font-weight: 600;
+}
+
+.pageButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.ellipsis {
+  padding: 0 6px;
+  color: #999;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .pagination {
+    gap: 6px;
+  }
+
+  .button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .pageButton {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-02-07T17:26:15.228910Z",
+  "schema": "villa_canabrava",
+  "expected_layers": 252,
+  "actual_layers": 250,
+  "total_features": 1078,
+  "bounds": {
+    "min_lon": -44.00506939952185,
+    "min_lat": -17.44128662887662,
+    "max_lon": -43.8847160344,
+    "max_lat": -17.3128380449
+  },
+  "perimeter_layer": "PERIMETRO",
+  "perimeter_area_ha": 7729.257184086024,
+  "perimeter_km": 58.20918778997823,
+  "duplicates": [],
+  "invalid_geometries": 0,
+  "srid_mismatch": 0,
+  "status": "FAIL",
+  "issues": [
+    "Layer count mismatch: 250 (expected 252)"
+  ]
+}

@@ -1,0 +1,13 @@
+2026-02-06 18:33:53,301 [INFO] [START] INICIANDO SPRINT 3 - SHADOW DEPLOYMENT EXECUTOR
+2026-02-06 18:33:53,301 [INFO] Timestamp: 2026-02-06T18:33:53.301080
+2026-02-06 18:33:53,301 [INFO] ================================================================================
+2026-02-06 18:33:53,301 [INFO] FASE 1: ENVIRONMENT SETUP
+2026-02-06 18:33:53,301 [INFO] ================================================================================
+2026-02-06 18:33:53,301 [INFO] [1.1] Checking Docker...
+2026-02-06 18:33:53,301 [INFO] Executing: docker --version
+2026-02-06 18:33:53,357 [INFO] Command succeeded
+2026-02-06 18:33:53,357 [INFO] [1.2] Checking PostgreSQL...
+2026-02-06 18:33:53,357 [INFO] Executing: "C:\Program Files\PostgreSQL\15\bin\psql.exe" --version
+2026-02-06 18:33:53,388 [INFO] Command succeeded
+2026-02-06 18:33:53,388 [INFO] [1.3] Checking PostGIS...
+2026-02-06 18:33:53,388 [INFO] Executing: "C:\Program Files\PostgreSQL\15\bin\psql.exe" -h localhost -U postgres -d villa_canabrava_shadow -c "SELECT PostGIS_Version();"

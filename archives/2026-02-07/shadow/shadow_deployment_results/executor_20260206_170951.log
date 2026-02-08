@@ -1,0 +1,50 @@
+2026-02-06 17:09:51,353 [INFO] Timestamp: 2026-02-06T17:09:51.353659
+2026-02-06 17:09:51,353 [INFO] 
+================================================================================
+2026-02-06 17:09:51,353 [INFO] INICIANDO FASE 1...
+2026-02-06 17:09:51,353 [INFO] ================================================================================
+2026-02-06 17:09:51,353 [INFO] FASE 1: ENVIRONMENT SETUP
+2026-02-06 17:09:51,353 [INFO] ================================================================================
+2026-02-06 17:09:51,353 [INFO] [1.1] Verificando Docker...
+2026-02-06 17:09:51,353 [INFO] Executing: docker --version
+2026-02-06 17:09:51,413 [INFO] Command succeeded
+2026-02-06 17:09:51,413 [INFO] [1.2] Verificando PostgreSQL local...
+2026-02-06 17:09:51,413 [INFO] Executing: psql --version
+2026-02-06 17:09:51,427 [ERROR] Command failed: 'psql' n∆o Ç reconhecido como um comando interno
+ou externo, um programa oper†vel ou um arquivo em lotes.
+
+2026-02-06 17:09:51,427 [INFO] [1.3] Verificando PostGIS...
+2026-02-06 17:09:51,427 [INFO] Executing: psql -h localhost -U postgres -d villa_canabrava_shadow -c "CREATE EXTENSION IF NOT EXISTS postgis;"
+2026-02-06 17:09:51,442 [ERROR] Command failed: 'psql' n∆o Ç reconhecido como um comando interno
+ou externo, um programa oper†vel ou um arquivo em lotes.
+
+2026-02-06 17:09:51,442 [INFO] [1.4] Criando database shadow...
+2026-02-06 17:09:51,442 [INFO] Executing: psql -h localhost -U postgres -d postgres -c "CREATE DATABASE villa_canabrava_shadow TEMPLATE template0;"
+2026-02-06 17:09:51,458 [ERROR] Command failed: 'psql' n∆o Ç reconhecido como um comando interno
+ou externo, um programa oper†vel ou um arquivo em lotes.
+
+2026-02-06 17:09:51,458 [ERROR] Failed to create shadow database: 'psql' n∆o Ç reconhecido como um comando interno
+ou externo, um programa oper†vel ou um arquivo em lotes.
+
+2026-02-06 17:09:51,458 [INFO] [1.5] Ativando PostGIS em shadow database...
+2026-02-06 17:09:51,458 [INFO] Executing: psql -h localhost -U postgres -d villa_canabrava_shadow -c "CREATE EXTENSION IF NOT EXISTS postgis;"
+2026-02-06 17:09:51,467 [ERROR] Command failed: 'psql' n∆o Ç reconhecido como um comando interno
+ou externo, um programa oper†vel ou um arquivo em lotes.
+
+2026-02-06 17:09:51,468 [ERROR] ERRO durante execuÁ„o: 'charmap' codec can't encode character '\u274c' in position 266: character maps to <undefined>
+Traceback (most recent call last):
+  File "c:\Users\rober\Desktop\Mundo Virtual Villa Canabrava\SPRINT3_SHADOW_DEPLOYMENT_EXECUTOR.py", line 949, in main
+    results["fases"]["FASE1"] = fase_1_environment_setup()
+  File "c:\Users\rober\Desktop\Mundo Virtual Villa Canabrava\SPRINT3_SHADOW_DEPLOYMENT_EXECUTOR.py", line 184, in fase_1_environment_setup
+    save_report("FASE1_ENVIRONMENT_SETUP", report)
+  File "c:\Users\rober\Desktop\Mundo Virtual Villa Canabrava\SPRINT3_SHADOW_DEPLOYMENT_EXECUTOR.py", line 120, in save_report
+    f.write(report)
+  File "C:\Users\rober\AppData\Local\Programs\Python\Python310\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 266: character maps to <undefined>
+2026-02-06 17:09:51,470 [INFO] 
+================================================================================
+2026-02-06 17:09:51,470 [INFO] DuraÁ„o total: 0.00 minutos
+2026-02-06 17:09:51,470 [INFO] Resumo salvo em: shadow_deployment_results\EXECUCAO_COMPLETA_20260206_170951.json
+2026-02-06 17:09:51,470 [INFO] DiretÛrio de resultados: shadow_deployment_results
+2026-02-06 17:09:51,470 [INFO] ================================================================================

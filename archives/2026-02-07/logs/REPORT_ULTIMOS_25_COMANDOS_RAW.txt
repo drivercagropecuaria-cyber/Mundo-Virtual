@@ -1,0 +1,25 @@
+﻿docker run --rm -v 6ed974cb09dc1aefb040770dc2275ab7549d19f14b7b5bb35e4a9d6db0de3802:/data alpine sh -lc "cat /data/PG_VERSION || true"`
+docker rm -f $scan 2>$null`
+docker run -d --name $scan -v ${vol}:/var/lib/postgresql/data postgis/postgis:15-3.3-alpine | Out-Null`
+docker exec -i $scan psql -U postgres -P pager=off -c "\l"`
+docker exec -i $scan psql -U postgres -d biblioteca -P pager=off -c "SELECT to_regclass('public.geometrias') AS geometrias;"`
+docker exec -i $scan psql -U postgres -d biblioteca -P pager=off -c "\dt public.*"`
+docker rm -f $scan`
+docker rm -f pgold 2>$null`
+docker run -d --name pgold -v 6ed974cb09dc1aefb040770dc2275ab7549d19f14b7b5bb35e4a9d6db0de3802:/var/lib/postgresql/data postgis/postgis:15-3.3-alpine | Out-Null`
+docker exec -i pgold sh -lc "pg_dump -U postgres -d biblioteca -t public.geometrias -Fc -f /tmp/geometrias.dump"`
+docker cp pgold:/tmp/geometrias.dump .\backup\geometrias.dump`
+docker rm -f pgold`
+docker cp .\backup\geometrias.dump postgres_test:/tmp/geometrias.dump`
+docker exec -it postgres_test sh -lc "pg_restore -U postgres -d biblioteca -c -t public.geometrias /tmp/geometrias.dump"`
+docker exec -i postgres_test psql -U postgres -d biblioteca -P pager=off -c "\dt public.*"`
+docker exec -i postgres_test psql -U postgres -d biblioteca -P pager=off -c "SELECT COUNT(*) FROM public.geometrias;"`
+docker exec -i postgres_test psql -U postgres -d biblioteca -P pager=off -c "\d+ public.geometrias"`
+docker rm -f $name 2>$null`
+docker run -d --name $name -v ${vol}:/var/lib/postgresql/data postgis/postgis:15-3.3-alpine | Out-Null`
+docker exec -i $name psql -U postgres -d biblioteca -P pager=off -c "SELECT COUNT(*) AS total FROM public.geometrias;"`
+docker exec -i $name psql -U postgres -d biblioteca -P pager=off -c "SELECT MIN(id), MAX(id) FROM public.geometrias;"`
+docker exec -i $name psql -U postgres -d biblioteca -P pager=off -c "SELECT ST_X(geometry), ST_Y(geometry) FROM public.geometrias ORDER BY id LIMIT 5;"`
+docker rm -f $name`
+docker exec -i postgres_test psql -U postgres -d biblioteca -P pager=off -c "$sql"`
+docker exec -i postgres_test psql -U postgres -d biblioteca -P pager=off -c "VACUUM (ANALYZE) public.geometrias;"`

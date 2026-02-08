@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database - Mínimo necessário para executar as OPTs
+  postgres:
+    image: postgres:15-alpine
+    container_name: villa_canabrava_db
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_INITDB_ARGS: "-c shared_preload_libraries=postgis,pgvector"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - villa_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    command:
+      - "postgres"
+      - "-c"
+      - "shared_preload_libraries=postgis,pgvector"
+
+  # PgAdmin para gerenciamento visual (opcional)
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: villa_canabrava_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    networks:
+      - villa_network
+    depends_on:
+      - postgres
+
+networks:
+  villa_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local

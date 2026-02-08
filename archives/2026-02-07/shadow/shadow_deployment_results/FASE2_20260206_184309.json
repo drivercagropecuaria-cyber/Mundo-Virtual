@@ -1,0 +1,8 @@
+{
+  "phase": "FASE2",
+  "timestamp": "2026-02-06T18:43:08.937497",
+  "database": "villa_canabrava_shadow",
+  "database_created": false,
+  "error": "psql: error: connection to server at \"localhost\" (::1), port 5432 failed: FATAL:  password authentication failed for user \"postgres\"\n",
+  "status": "FAIL"
+}

@@ -1,0 +1,5 @@
+[2026-02-06 16:43:26] [INFO] [INICIO] INICIANDO STAGE 4 EXECUTOR
+[2026-02-06 16:43:26] [INFO] [OBJETIVO] Aplicar OPT1-5 sequencialmente em producao
+[2026-02-06 16:43:26] [ERROR] [ERRO] Falha na conexao: could not translate host name "localhost " to address: Name or service not known
+
+[2026-02-06 16:43:26] [ERROR] [FALHA] Falha na conexao. Abortando.

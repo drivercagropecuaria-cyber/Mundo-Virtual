@@ -1,0 +1,38 @@
+{
+  "area_total_ha": 7729.26,
+  "area_total_km2": 77.29260000000001,
+  "perimetro_km": 58.21,
+  "coordenadas": {
+    "longitude_min": -44.005069,
+    "longitude_max": -43.884716,
+    "latitude_min": -17.441287,
+    "latitude_max": 50,
+    "centroide": [
+      -43.944892499999995,
+      -17.3770625
+    ]
+  },
+  "areas_por_categoria": {
+    "mata_nativa": 1784.79,
+    "reserva_legal": 1568.96,
+    "app": 87.91,
+    "pivos_irrigados": 249.36,
+    "confinamentos": 14.15,
+    "currais": 2.94,
+    "casas_colono": 3.71,
+    "sedes": 6.16,
+    "brejos": 22.69,
+    "lagoas": 7.18,
+    "corregos": 1.26,
+    "estradas": 37.43,
+    "ferrovia": 3.56,
+    "pista_vaqueijada": 0.73,
+    "aerodromo": 9.52,
+    "area_silos": 2.89,
+    "fabrica_racao": 1.0
+  },
+  "area_preservada_ha": 3441.66,
+  "area_produtiva_ha": 4287.6,
+  "percentual_preservado": 44.52767794070842,
+  "percentual_produtivo": 55.47232205929158
+}

@@ -1,0 +1,61 @@
+.breadcrumbs {
+  padding: 12px 0;
+  font-size: 14px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.link,
+.text {
+  color: #0066cc;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.link:hover:not(.current) {
+  color: #0052a3;
+  text-decoration: underline;
+}
+
+.text {
+  color: #555;
+  cursor: default;
+}
+
+.link.current,
+.text.current {
+  color: #555;
+  font-weight: 600;
+  cursor: default;
+}
+
+.separator {
+  color: #999;
+  margin: 0 2px;
+  font-weight: 300;
+}
+
+@media (max-width: 640px) {
+  .breadcrumbs {
+    font-size: 12px;
+  }
+
+  .separator {
+    margin: 0 1px;
+  }
+}

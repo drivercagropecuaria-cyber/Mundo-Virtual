@@ -1,0 +1,157 @@
+{
+  "timestamp": "2026-02-07T00:17:11.382975Z",
+  "stage": "BASELINE",
+  "optimization_level": "BASELINE",
+  "batch_id": "a0c483b2-9b35-47f8-a77c-21fdc2b19088",
+  "metrics": {
+    "query_latency": {
+      "Q1_ST_Contains": {
+        "query_name": "ST_Contains geometry search",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 0.8310999983223155,
+        "p95_ms": 44.66849999880651,
+        "p99_ms": 44.66849999880651,
+        "avg_ms": 9.493099999963306,
+        "min_ms": 0.4597000006469898,
+        "max_ms": 44.66849999880651
+      },
+      "Q2_ST_Intersects": {
+        "query_name": "ST_Intersects multi-feature",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 0.6752999979653396,
+        "p95_ms": 4.694600000220817,
+        "p99_ms": 4.694600000220817,
+        "avg_ms": 1.4831799999228679,
+        "min_ms": 0.6253000028664246,
+        "max_ms": 4.694600000220817
+      },
+      "Q3_ST_DWithin": {
+        "query_name": "ST_DWithin proximity search",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 0.5949999977019615,
+        "p95_ms": 3.676100001030136,
+        "p99_ms": 3.676100001030136,
+        "avg_ms": 1.1874799994984642,
+        "min_ms": 0.5029000021750107,
+        "max_ms": 3.676100001030136
+      },
+      "Q4_RPC_Search": {
+        "query_name": "RPC-style bbox + category search",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 0.4870999982813373,
+        "p95_ms": 4.531300000962801,
+        "p99_ms": 4.531300000962801,
+        "avg_ms": 1.3247199996840209,
+        "min_ms": 0.447300000814721,
+        "max_ms": 4.531300000962801
+      },
+      "Q5_Partitioned": {
+        "query_name": "Partitioned query (2026-2028 range)",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 0.7628999956068583,
+        "p95_ms": 2.8663999983109534,
+        "p99_ms": 2.8663999983109534,
+        "avg_ms": 1.2160399986896664,
+        "min_ms": 0.7089999999152496,
+        "max_ms": 2.8663999983109534
+      },
+      "Q6_Index_Range": {
+        "query_name": "Index range scan",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 0.5720999979530461,
+        "p95_ms": 1.2245000034454279,
+        "p99_ms": 1.2245000034454279,
+        "avg_ms": 0.6886200004373677,
+        "min_ms": 0.5137000043760054,
+        "max_ms": 1.2245000034454279
+      },
+      "Q7_Spatial_Index": {
+        "query_name": "Spatial index bbox search",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 0.45559999853139743,
+        "p95_ms": 1.4813999951002188,
+        "p99_ms": 1.4813999951002188,
+        "avg_ms": 0.6609799980651587,
+        "min_ms": 0.43429999641375616,
+        "max_ms": 1.4813999951002188
+      },
+      "Q8_Aggregate_Stats": {
+        "query_name": "Aggregate with spatial stats",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 3.2537999941268936,
+        "p95_ms": 6.1846000025980175,
+        "p99_ms": 6.1846000025980175,
+        "avg_ms": 3.8131799970869906,
+        "min_ms": 2.8918999960296787,
+        "max_ms": 6.1846000025980175
+      },
+      "Q9_Join_Catalog": {
+        "query_name": "Join with layer metadata",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 0.8021000030566938,
+        "p95_ms": 3.9585000049555674,
+        "p99_ms": 3.9585000049555674,
+        "avg_ms": 1.425820002623368,
+        "min_ms": 0.721100004739128,
+        "max_ms": 3.9585000049555674
+      },
+      "Q10_Complex_GIS": {
+        "query_name": "Complex GIS computation",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 1.0943000015686266,
+        "p95_ms": 4.183999997621868,
+        "p99_ms": 4.183999997621868,
+        "avg_ms": 1.6783799990662374,
+        "min_ms": 0.934299998334609,
+        "max_ms": 4.183999997621868
+      }
+    },
+    "throughput": {
+      "duration_seconds": 10,
+      "queries_executed": 26772,
+      "qps": 2677.1952613633675
+    },
+    "cpu_memory_stats": {
+      "total_calls": 90935.0,
+      "avg_exec_time_ms": 0.28055417737137367,
+      "max_exec_time_ms": 4.84375,
+      "total_rows_returned": 90844.0,
+      "cache_hit_ratio_percent": 97.49975097121228
+    },
+    "io_stats": {
+      "total_heap_blocks_read": 1097,
+      "total_heap_blocks_hit": 35885,
+      "total_index_blocks_read": 115,
+      "total_index_blocks_hit": 44566,
+      "total_io_operations": 81663,
+      "cache_hit_ratio_percent": 98.51585173211859,
+      "tables_sampled": 7
+    },
+    "connections": {
+      "total_connections": 1,
+      "active_connections": 1,
+      "idle_connections": 0,
+      "idle_in_transaction": 0
+    }
+  }
+}

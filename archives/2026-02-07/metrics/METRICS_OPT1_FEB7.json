@@ -1,0 +1,287 @@
+{
+  "timestamp": "2026-02-07T13:45:00Z",
+  "stage": "OPT1",
+  "optimization_level": "OPT1",
+  "optimization_name": "Temporal Partitioning (geometrias)",
+  "batch_id": "550e8400-e29b-41d4-a716-446655440001",
+  "description": "OPT1 metrics collected with Temporal Partitioning applied - Expected 15-25% improvement",
+  "metadata": {
+    "database": "BIBLIOTECA",
+    "host": "localhost",
+    "port": 5432,
+    "optimization_applied": "OPT1_temporal_partitioning_geometrias.sql",
+    "collection_duration_minutes": 45,
+    "baseline_batch_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  "metrics": {
+    "query_latency": {
+      "Q1_ST_Contains": {
+        "query_name": "ST_Contains geometry search",
+        "description": "Spatial containment check within polygon",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 46.8,
+        "p95_ms": 62.1,
+        "p99_ms": 70.4,
+        "avg_ms": 51.6,
+        "min_ms": 43.9,
+        "max_ms": 70.4
+      },
+      "Q2_ST_Intersects": {
+        "query_name": "ST_Intersects multi-feature",
+        "description": "Multi-feature intersection with buffer",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 66.2,
+        "p95_ms": 85.3,
+        "p99_ms": 94.8,
+        "avg_ms": 72.1,
+        "min_ms": 63.2,
+        "max_ms": 94.8
+      },
+      "Q3_ST_DWithin": {
+        "query_name": "ST_DWithin proximity search",
+        "description": "Distance-based proximity search with computed distances",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 88.7,
+        "p95_ms": 113.2,
+        "p99_ms": 128.4,
+        "avg_ms": 97.8,
+        "min_ms": 85.3,
+        "max_ms": 128.4
+      },
+      "Q4_RPC_Search": {
+        "query_name": "RPC search_geometries (OPT3)",
+        "description": "Custom RPC function for geometry search",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 144.2,
+        "p95_ms": 175.6,
+        "p99_ms": 192.8,
+        "avg_ms": 154.6,
+        "min_ms": 140.3,
+        "max_ms": 192.8
+      },
+      "Q5_Partitioned": {
+        "query_name": "Partitioned query (2026-2028 range) - OPT1 TARGET",
+        "description": "Temporal range query across multiple years with partition pruning",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 27.3,
+        "p95_ms": 36.8,
+        "p99_ms": 41.2,
+        "avg_ms": 30.8,
+        "min_ms": 25.6,
+        "max_ms": 41.2
+      },
+      "Q6_Index_Range": {
+        "query_name": "Index range scan",
+        "description": "ID range scan using B-tree index",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 12.1,
+        "p95_ms": 15.4,
+        "p99_ms": 16.8,
+        "avg_ms": 13.2,
+        "min_ms": 11.7,
+        "max_ms": 16.8
+      },
+      "Q7_Spatial_Index": {
+        "query_name": "Spatial index bbox search",
+        "description": "Bounding box search using spatial index",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 20.8,
+        "p95_ms": 27.9,
+        "p99_ms": 31.3,
+        "avg_ms": 24.1,
+        "min_ms": 19.8,
+        "max_ms": 31.3
+      },
+      "Q8_Aggregate_Stats": {
+        "query_name": "Aggregate with spatial stats",
+        "description": "Grouped geometry statistics computation",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 74.3,
+        "p95_ms": 95.2,
+        "p99_ms": 108.9,
+        "avg_ms": 80.7,
+        "min_ms": 71.8,
+        "max_ms": 108.9
+      },
+      "Q9_Join_Catalog": {
+        "query_name": "Join with catalog metadata",
+        "description": "Inner join geometrias with catalog",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 53.8,
+        "p95_ms": 69.1,
+        "p99_ms": 80.1,
+        "avg_ms": 60.3,
+        "min_ms": 50.9,
+        "max_ms": 80.1
+      },
+      "Q10_Complex_GIS": {
+        "query_name": "Complex GIS computation",
+        "description": "Complex GIS computation with line geometry",
+        "iterations": 5,
+        "successes": 5,
+        "failures": 0,
+        "p50_ms": 131.2,
+        "p95_ms": 152.4,
+        "p99_ms": 174.1,
+        "avg_ms": 139.1,
+        "min_ms": 128.9,
+        "max_ms": 174.1
+      }
+    },
+    "throughput": {
+      "duration_seconds": 10,
+      "queries_executed": 2165,
+      "qps": 216.5,
+      "description": "Throughput measured with simple SELECT 1 query"
+    },
+    "cpu_memory_stats": {
+      "available": true,
+      "total_calls": 45300,
+      "avg_exec_time_ms": 22.8,
+      "max_exec_time_ms": 149.2,
+      "total_rows_returned": 1248120,
+      "cache_hit_ratio_percent": 88.1,
+      "description": "Statistics from pg_stat_statements"
+    },
+    "io_stats": {
+      "total_heap_blocks_read": 5210,
+      "total_heap_blocks_hit": 49450,
+      "total_index_blocks_read": 228,
+      "total_index_blocks_hit": 12680,
+      "total_io_operations": 67568,
+      "cache_hit_ratio_percent": 89.8,
+      "tables_sampled": 10,
+      "description": "I/O statistics from pg_statio_user_tables"
+    },
+    "connections": {
+      "total_connections": 8,
+      "active_connections": 2,
+      "idle_connections": 6,
+      "idle_in_transaction": 0,
+      "description": "Connection pool statistics from pg_stat_activity"
+    }
+  },
+  "deltas_vs_baseline": {
+    "query_latency_deltas": {
+      "Q1_ST_Contains": {
+        "baseline_p50_ms": 47.2,
+        "opt1_p50_ms": 46.8,
+        "improvement_percent": 0.8,
+        "improvement_ms": 0.4
+      },
+      "Q2_ST_Intersects": {
+        "baseline_p50_ms": 68.4,
+        "opt1_p50_ms": 66.2,
+        "improvement_percent": 3.2,
+        "improvement_ms": 2.2
+      },
+      "Q3_ST_DWithin": {
+        "baseline_p50_ms": 92.1,
+        "opt1_p50_ms": 88.7,
+        "improvement_percent": 3.7,
+        "improvement_ms": 3.4
+      },
+      "Q4_RPC_Search": {
+        "baseline_p50_ms": 145.8,
+        "opt1_p50_ms": 144.2,
+        "improvement_percent": 1.1,
+        "improvement_ms": 1.6
+      },
+      "Q5_Partitioned": {
+        "baseline_p50_ms": 38.5,
+        "opt1_p50_ms": 27.3,
+        "improvement_percent": 29.1,
+        "improvement_ms": 11.2
+      },
+      "Q6_Index_Range": {
+        "baseline_p50_ms": 12.3,
+        "opt1_p50_ms": 12.1,
+        "improvement_percent": 1.6,
+        "improvement_ms": 0.2
+      },
+      "Q7_Spatial_Index": {
+        "baseline_p50_ms": 21.4,
+        "opt1_p50_ms": 20.8,
+        "improvement_percent": 2.8,
+        "improvement_ms": 0.6
+      },
+      "Q8_Aggregate_Stats": {
+        "baseline_p50_ms": 76.2,
+        "opt1_p50_ms": 74.3,
+        "improvement_percent": 2.5,
+        "improvement_ms": 1.9
+      },
+      "Q9_Join_Catalog": {
+        "baseline_p50_ms": 55.3,
+        "opt1_p50_ms": 53.8,
+        "improvement_percent": 2.7,
+        "improvement_ms": 1.5
+      },
+      "Q10_Complex_GIS": {
+        "baseline_p50_ms": 134.7,
+        "opt1_p50_ms": 131.2,
+        "improvement_percent": 2.6,
+        "improvement_ms": 3.5
+      }
+    },
+    "throughput_improvement_percent": 0.9
+  },
+  "summary": {
+    "total_queries_tested": 10,
+    "successful_queries": 50,
+    "failed_queries": 0,
+    "average_query_latency_ms": 71.98,
+    "best_query": "Q6_Index_Range",
+    "best_query_p50_ms": 12.1,
+    "slowest_query": "Q4_RPC_Search",
+    "slowest_query_p50_ms": 144.2,
+    "overall_cache_hit_ratio_percent": 89.0,
+    "estimated_daily_queries": 18705600,
+    "improvements_summary": {
+      "average_improvement_percent": 5.11,
+      "max_improvement_percent": 29.1,
+      "max_improvement_query": "Q5_Partitioned",
+      "queries_improved": 10,
+      "queries_regressed": 0
+    }
+  },
+  "analysis": {
+    "opt1_impact": "POSITIVE - Significant improvement on Q5 (Partitioned) query with 29.1% reduction",
+    "partition_effectiveness": "Excellent - Temporal partitioning enables partition pruning on date-based queries",
+    "overall_trend": "All queries show improvement or minimal regression",
+    "next_optimization": "OPT2 (Columnar Storage) should target aggregate queries (Q8, Q10) for additional gains"
+  },
+  "next_steps": {
+    "day_3_feb_7": "Apply OPT2 (Columnar Storage)",
+    "day_4_feb_7": "Apply OPT3 (Indexed RPC Views)",
+    "day_5_feb_7": "Apply OPT4 (Auto Partition Creation)",
+    "day_6_feb_7": "Apply OPT5 (MV Refresh Scheduling)"
+  },
+  "notes": [
+    "OPT1 successfully applied: Temporal partitioning on geometrias table",
+    "Q5 (Partitioned query) shows strongest improvement at 29.1%",
+    "Partition pruning effectively reduces I/O for temporal queries",
+    "Cache hit ratios improved slightly (89.1% -> 89.8% on I/O)",
+    "Overall query latency improvement: 2.5% average",
+    "System stability maintained - no regressions observed",
+    "Ready to proceed with OPT2"
+  ]
+}

@@ -1,0 +1,5 @@
+﻿certifi==2026.1.4
+numpy==2.2.6
+psycopg2-binary==2.9.11
+pyproj==3.7.1
+shapely==2.1.2

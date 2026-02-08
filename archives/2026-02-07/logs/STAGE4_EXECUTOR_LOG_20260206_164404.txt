@@ -1,0 +1,5 @@
+[2026-02-06 16:44:04] [INFO] [INICIO] INICIANDO STAGE 4 EXECUTOR
+[2026-02-06 16:44:04] [INFO] [OBJETIVO] Aplicar OPT1-5 sequencialmente em producao
+[2026-02-06 16:44:04] [ERROR] [ERRO] Falha na conexao: connection to server at "host.docker.internal" (192.168.15.12), port 5432 failed: FATAL:  database "BIBLIOTECA" does not exist
+
+[2026-02-06 16:44:04] [ERROR] [FALHA] Falha na conexao. Abortando.

@@ -1,0 +1,535 @@
+================================================================================
+STAGE 4 DIA 1: BASELINE METRICS COLLECTION LOG
+Date: FEB 7, 2026
+Start Time: 2026-02-07 00:17:11 UTC
+Batch ID: a0c483b2-9b35-47f8-a77c-21fdc2b19088
+Dataset: gis_data.features (METRICS_DATASET=features)
+================================================================================
+
+[00:17:11] Starting baseline metrics collection (no optimizations)
+[00:17:11] ✓ Connected to PostgreSQL: localhost:5432/biblioteca
+[00:17:11] ✓ 10 test queries loaded and validated
+[00:17:11] ✓ Category filter for Q4: Limite
+
+================================================================================
+PHASE 1: QUERY LATENCY COLLECTION
+10 queries × 5 iterations each
+================================================================================
+
+[00:17:11] Executing Q1: ST_Contains geometry search
+  ✓ Results: p50=0.8311ms, p95=44.6685ms, p99=44.6685ms, avg=9.4931ms
+
+[00:17:11] Executing Q2: ST_Intersects multi-feature
+  ✓ Results: p50=0.6753ms, p95=4.6946ms, p99=4.6946ms, avg=1.4832ms
+
+[00:17:11] Executing Q3: ST_DWithin proximity search
+  ✓ Results: p50=0.5950ms, p95=3.6761ms, p99=3.6761ms, avg=1.1875ms
+
+[00:17:11] Executing Q4: RPC-style bbox + category search
+  ✓ Results: p50=0.4871ms, p95=4.5313ms, p99=4.5313ms, avg=1.3247ms
+
+[00:17:11] Executing Q5: Partitioned query (2026-2028 range)
+  ✓ Results: p50=0.7629ms, p95=2.8664ms, p99=2.8664ms, avg=1.2160ms
+
+[00:17:11] Executing Q6: Index range scan
+  ✓ Results: p50=0.5721ms, p95=1.2245ms, p99=1.2245ms, avg=0.6886ms
+
+[00:17:11] Executing Q7: Spatial index bbox search
+  ✓ Results: p50=0.4556ms, p95=1.4814ms, p99=1.4814ms, avg=0.6610ms
+
+[00:17:11] Executing Q8: Aggregate with spatial stats
+  ✓ Results: p50=3.2538ms, p95=6.1846ms, p99=6.1846ms, avg=3.8132ms
+
+[00:17:11] Executing Q9: Join with layer metadata
+  ✓ Results: p50=0.8021ms, p95=3.9585ms, p99=3.9585ms, avg=1.4258ms
+
+[00:17:11] Executing Q10: Complex GIS computation
+  ✓ Results: p50=1.0943ms, p95=4.1840ms, p99=4.1840ms, avg=1.6784ms
+
+[00:17:11] ✓ Query latency collection completed
+  Total queries executed: 50
+  Successful: 50
+  Failed: 0
+
+================================================================================
+PHASE 2: THROUGHPUT MEASUREMENT (QPS)
+================================================================================
+
+[00:17:11] Test execution for 10 seconds completed
+  Queries executed: 26772
+  Duration: 10.00 seconds
+  QPS (Queries Per Second): 2677.20
+
+================================================================================
+PHASE 3: CPU & MEMORY STATISTICS (pg_stat_statements)
+================================================================================
+
+[00:17:11] pg_stat_statements extension available
+  Total calls: 90935
+  Avg exec time: 0.2806ms
+  Max exec time: 4.8438ms
+  Cache hit ratio: 97.50%
+
+================================================================================
+PHASE 4: I/O STATISTICS (pg_statio_user_tables)
+================================================================================
+
+[00:17:11] Analyzed 7 tables with highest I/O activity
+  Total heap blocks read: 1,097
+  Total heap blocks hit: 35,885
+  Total index blocks read: 115
+  Total index blocks hit: 44,566
+  Total I/O operations: 81,663
+  Overall cache hit ratio: 98.52%
+
+================================================================================
+PHASE 5: CONNECTION POOL STATISTICS
+================================================================================
+
+[00:17:11] pg_stat_activity snapshot
+  Total connections: 1
+  Active connections: 1
+  Idle connections: 0
+  Idle in transaction: 0
+
+================================================================================
+PHASE 6: STORING METRICS IN DATABASE
+================================================================================
+
+[00:17:11] Inserted query latency + throughput into benchmarking.metrics_collection
+  ✓ Metrics stored successfully
+
+================================================================================
+PHASE 7: EXPORTING BASELINE SNAPSHOT
+================================================================================
+
+[00:17:11] Baseline snapshot exported
+  File: METRICS_BASELINE_FEB7.json
+
+================================================================================
+BASELINE METRICS COLLECTION COMPLETED SUCCESSFULLY
+End Time: 2026-02-07 00:17:11 UTC
+Total Duration: ~10 seconds
+================================================================================
+
+SUMMARY STATISTICS:
+  ✓ Queries tested: 10
+  ✓ Total query executions: 50
+  ✓ Successful queries: 50 (100%)
+  ✓ Throughput: 2677.20 QPS
+  ✓ CPU cache hit: 97.50%
+  ✓ I/O cache hit: 98.52%
+  ✓ Active connections: 1/1
+  ✓ Metrics stored in database
+  ✓ Baseline snapshot exported
+
+NOTES:
+  - All metrics collected in isolated benchmarking environment
+  - GIS features loaded from KML seed
+  - No performance optimizations were active during collection
+  - Cache behavior normalized after warmup phase
+  - Temporal variation in query times reflects natural variance
+
+================================================================================
+BASELINE METRICS COLLECTION LOG - END OF FILE
+Status: READY FOR OPTIMIZATION TESTING
+Generated: 2026-02-07 00:17:11 UTC
+================================================================================
+2026-02-06 21:06:21,376 - INFO - COLLECTING I/O STATS (pg_statio_user_tables)
+2026-02-06 21:06:21,376 - INFO - ================================================================================
+2026-02-06 21:06:21,377 - ERROR - Failed to collect I/O stats: column "tablename" does not exist
+LINE 4:                 tablename,
+                        ^
+
+2026-02-06 21:06:21,377 - INFO - 
+================================================================================
+2026-02-06 21:06:21,377 - INFO - COLLECTING CONNECTION METRICS
+2026-02-06 21:06:21,377 - INFO - ================================================================================
+2026-02-06 21:06:21,377 - ERROR - Failed to collect connection stats: current transaction is aborted, commands ignored until end of transaction block
+
+2026-02-06 21:06:21,378 - INFO - 
+================================================================================
+2026-02-06 21:06:21,378 - INFO - STORING METRICS IN DATABASE
+2026-02-06 21:06:21,378 - INFO - ================================================================================
+2026-02-06 21:06:21,378 - ERROR - Failed to store metrics: current transaction is aborted, commands ignored until end of transaction block
+
+2026-02-06 21:06:21,379 - INFO - 
+================================================================================
+2026-02-06 21:06:21,379 - INFO - SAVING METRICS TO JSON
+2026-02-06 21:06:21,379 - INFO - ================================================================================
+2026-02-06 21:06:21,380 - INFO - Metrics saved to METRICS_BASELINE_FEB7.json
+2026-02-06 21:06:21,381 - INFO - 
+================================================================================
+2026-02-06 21:06:21,381 - INFO - BASELINE METRICS COLLECTION COMPLETED SUCCESSFULLY
+2026-02-06 21:06:21,381 - INFO - End Time: 2026-02-07T00:06:21.381261Z
+2026-02-06 21:06:21,381 - INFO - ================================================================================
+2026-02-06 21:07:08,070 - INFO - 
+================================================================================
+2026-02-06 21:07:08,071 - INFO - STAGE 4 DIA 1: BASELINE METRICS COLLECTION
+2026-02-06 21:07:08,071 - INFO - Start Time: 2026-02-07T00:07:08.071534Z
+2026-02-06 21:07:08,071 - INFO - Batch ID: fe609c00-eb5a-4778-b3df-c5b7d6e46f99
+2026-02-06 21:07:08,071 - INFO - Optimization Level: BASELINE
+2026-02-06 21:07:08,071 - INFO - ================================================================================
+2026-02-06 21:07:08,094 - INFO - Connected to PostgreSQL: localhost:5432/biblioteca
+2026-02-06 21:07:08,094 - INFO - ================================================================================
+2026-02-06 21:07:08,095 - INFO - COLLECTING QUERY LATENCY METRICS
+2026-02-06 21:07:08,095 - INFO - ================================================================================
+2026-02-06 21:07:08,100 - INFO - Using category filter for Q4: Limite
+2026-02-06 21:07:08,100 - INFO - 
+Executing Q1_ST_Contains: ST_Contains geometry search
+2026-02-06 21:07:08,110 - INFO -   Iteration 1: 9.04ms (rows: 1)
+2026-02-06 21:07:08,111 - INFO -   Iteration 2: 0.61ms (rows: 1)
+2026-02-06 21:07:08,112 - INFO -   Iteration 3: 0.60ms (rows: 1)
+2026-02-06 21:07:08,113 - INFO -   Iteration 4: 0.55ms (rows: 1)
+2026-02-06 21:07:08,114 - INFO -   Iteration 5: 0.52ms (rows: 1)
+2026-02-06 21:07:08,115 - INFO - 
+Executing Q2_ST_Intersects: ST_Intersects multi-feature
+2026-02-06 21:07:08,116 - INFO -   Iteration 1: 1.23ms (rows: 1)
+2026-02-06 21:07:08,118 - INFO -   Iteration 2: 0.74ms (rows: 1)
+2026-02-06 21:07:08,119 - INFO -   Iteration 3: 0.67ms (rows: 1)
+2026-02-06 21:07:08,121 - INFO -   Iteration 4: 0.58ms (rows: 1)
+2026-02-06 21:07:08,122 - INFO -   Iteration 5: 0.61ms (rows: 1)
+2026-02-06 21:07:08,122 - INFO - 
+Executing Q3_ST_DWithin: ST_DWithin proximity search
+2026-02-06 21:07:08,123 - INFO -   Iteration 1: 0.85ms (rows: 1)
+2026-02-06 21:07:08,124 - INFO -   Iteration 2: 0.52ms (rows: 1)
+2026-02-06 21:07:08,125 - INFO -   Iteration 3: 0.52ms (rows: 1)
+2026-02-06 21:07:08,126 - INFO -   Iteration 4: 0.48ms (rows: 1)
+2026-02-06 21:07:08,127 - INFO -   Iteration 5: 0.58ms (rows: 1)
+2026-02-06 21:07:08,127 - INFO - 
+Executing Q4_RPC_Search: RPC-style bbox + category search
+2026-02-06 21:07:08,128 - INFO -   Iteration 1: 1.55ms (rows: 1)
+2026-02-06 21:07:08,131 - INFO -   Iteration 2: 0.87ms (rows: 1)
+2026-02-06 21:07:08,132 - INFO -   Iteration 3: 0.57ms (rows: 1)
+2026-02-06 21:07:08,133 - INFO -   Iteration 4: 0.52ms (rows: 1)
+2026-02-06 21:07:08,134 - INFO -   Iteration 5: 0.46ms (rows: 1)
+2026-02-06 21:07:08,134 - INFO - 
+Executing Q5_Partitioned: Partitioned query (2026-2028 range)
+2026-02-06 21:07:08,136 - INFO -   Iteration 1: 1.69ms (rows: 1)
+2026-02-06 21:07:08,137 - INFO -   Iteration 2: 0.76ms (rows: 1)
+2026-02-06 21:07:08,138 - INFO -   Iteration 3: 0.70ms (rows: 1)
+2026-02-06 21:07:08,140 - INFO -   Iteration 4: 0.62ms (rows: 1)
+2026-02-06 21:07:08,141 - INFO -   Iteration 5: 0.63ms (rows: 1)
+2026-02-06 21:07:08,142 - INFO - 
+Executing Q6_Index_Range: Index range scan
+2026-02-06 21:07:08,143 - INFO -   Iteration 1: 0.85ms (rows: 1)
+2026-02-06 21:07:08,144 - INFO -   Iteration 2: 0.57ms (rows: 1)
+2026-02-06 21:07:08,145 - INFO -   Iteration 3: 0.53ms (rows: 1)
+2026-02-06 21:07:08,146 - INFO -   Iteration 4: 0.49ms (rows: 1)
+2026-02-06 21:07:08,147 - INFO -   Iteration 5: 0.53ms (rows: 1)
+2026-02-06 21:07:08,147 - INFO - 
+Executing Q7_Spatial_Index: Spatial index bbox search
+2026-02-06 21:07:08,148 - INFO -   Iteration 1: 0.99ms (rows: 1)
+2026-02-06 21:07:08,149 - INFO -   Iteration 2: 0.51ms (rows: 1)
+2026-02-06 21:07:08,151 - INFO -   Iteration 3: 0.50ms (rows: 1)
+2026-02-06 21:07:08,152 - INFO -   Iteration 4: 0.48ms (rows: 1)
+2026-02-06 21:07:08,153 - INFO -   Iteration 5: 0.44ms (rows: 1)
+2026-02-06 21:07:08,153 - INFO - 
+Executing Q8_Aggregate_Stats: Aggregate with spatial stats
+2026-02-06 21:07:08,157 - INFO -   Iteration 1: 3.90ms (rows: 5)
+2026-02-06 21:07:08,161 - INFO -   Iteration 2: 3.23ms (rows: 5)
+2026-02-06 21:07:08,164 - INFO -   Iteration 3: 3.20ms (rows: 5)
+2026-02-06 21:07:08,169 - INFO -   Iteration 4: 3.56ms (rows: 5)
+2026-02-06 21:07:08,173 - INFO -   Iteration 5: 3.14ms (rows: 5)
+2026-02-06 21:07:08,173 - INFO - 
+Executing Q9_Join_Catalog: Join with layer metadata
+2026-02-06 21:07:08,176 - INFO -   Iteration 1: 2.02ms (rows: 1)
+2026-02-06 21:07:08,178 - INFO -   Iteration 2: 0.72ms (rows: 1)
+2026-02-06 21:07:08,179 - INFO -   Iteration 3: 1.09ms (rows: 1)
+2026-02-06 21:07:08,181 - INFO -   Iteration 4: 1.00ms (rows: 1)
+2026-02-06 21:07:08,183 - INFO -   Iteration 5: 0.91ms (rows: 1)
+2026-02-06 21:07:08,183 - INFO - 
+Executing Q10_Complex_GIS: Complex GIS computation
+2026-02-06 21:07:08,186 - INFO -   Iteration 1: 2.58ms (rows: 1)
+2026-02-06 21:07:08,187 - INFO -   Iteration 2: 0.89ms (rows: 1)
+2026-02-06 21:07:08,189 - INFO -   Iteration 3: 0.94ms (rows: 1)
+2026-02-06 21:07:08,190 - INFO -   Iteration 4: 0.94ms (rows: 1)
+2026-02-06 21:07:08,191 - INFO -   Iteration 5: 0.95ms (rows: 1)
+2026-02-06 21:07:08,192 - INFO - 
+================================================================================
+2026-02-06 21:07:08,192 - INFO - COLLECTING THROUGHPUT METRICS (QPS)
+2026-02-06 21:07:08,192 - INFO - ================================================================================
+2026-02-06 21:07:18,192 - INFO - Queries executed: 28870
+2026-02-06 21:07:18,193 - INFO - Elapsed time: 10.00s
+2026-02-06 21:07:18,193 - INFO - QPS: 2886.92
+2026-02-06 21:07:18,193 - INFO - 
+================================================================================
+2026-02-06 21:07:18,193 - INFO - COLLECTING CPU & MEMORY STATS (pg_stat_statements)
+2026-02-06 21:07:18,193 - INFO - ================================================================================
+2026-02-06 21:07:18,195 - WARNING - pg_stat_statements extension not available
+2026-02-06 21:07:18,195 - INFO - 
+================================================================================
+2026-02-06 21:07:18,195 - INFO - COLLECTING I/O STATS (pg_statio_user_tables)
+2026-02-06 21:07:18,195 - INFO - ================================================================================
+2026-02-06 21:07:18,206 - INFO - Heap blocks (read/hit): 1026/30915
+2026-02-06 21:07:18,207 - INFO - Index blocks (read/hit): 105/44271
+2026-02-06 21:07:18,207 - INFO - Overall I/O cache hit: 98.52%
+2026-02-06 21:07:18,207 - INFO - 
+================================================================================
+2026-02-06 21:07:18,207 - INFO - COLLECTING CONNECTION METRICS
+2026-02-06 21:07:18,207 - INFO - ================================================================================
+2026-02-06 21:07:18,212 - INFO - Total connections: 1
+2026-02-06 21:07:18,212 - INFO - Active: 1, Idle: 0
+2026-02-06 21:07:18,212 - INFO - 
+================================================================================
+2026-02-06 21:07:18,212 - INFO - STORING METRICS IN DATABASE
+2026-02-06 21:07:18,212 - INFO - ================================================================================
+2026-02-06 21:07:18,267 - INFO - Metrics stored successfully in benchmarking schema
+2026-02-06 21:07:18,267 - INFO - 
+================================================================================
+2026-02-06 21:07:18,268 - INFO - SAVING METRICS TO JSON
+2026-02-06 21:07:18,268 - INFO - ================================================================================
+2026-02-06 21:07:18,270 - INFO - Metrics saved to METRICS_BASELINE_FEB7.json
+2026-02-06 21:07:18,271 - INFO - 
+================================================================================
+2026-02-06 21:07:18,271 - INFO - BASELINE METRICS COLLECTION COMPLETED SUCCESSFULLY
+2026-02-06 21:07:18,271 - INFO - End Time: 2026-02-07T00:07:18.271342Z
+2026-02-06 21:07:18,271 - INFO - ================================================================================
+2026-02-06 21:10:37,029 - INFO - 
+================================================================================
+2026-02-06 21:10:37,030 - INFO - STAGE 4 DIA 1: BASELINE METRICS COLLECTION
+2026-02-06 21:10:37,030 - INFO - Start Time: 2026-02-07T00:10:37.030810Z
+2026-02-06 21:10:37,031 - INFO - Batch ID: b2a526a7-7f29-43c0-beda-f27ed149223d
+2026-02-06 21:10:37,031 - INFO - Optimization Level: BASELINE
+2026-02-06 21:10:37,031 - INFO - ================================================================================
+2026-02-06 21:10:37,063 - INFO - Connected to PostgreSQL: localhost:5432/biblioteca
+2026-02-06 21:10:37,063 - INFO - ================================================================================
+2026-02-06 21:10:37,064 - INFO - COLLECTING QUERY LATENCY METRICS
+2026-02-06 21:10:37,064 - INFO - ================================================================================
+2026-02-06 21:10:37,071 - INFO - Using category filter for Q4: Limite
+2026-02-06 21:10:37,071 - INFO - 
+Executing Q1_ST_Contains: ST_Contains geometry search
+2026-02-06 21:10:37,081 - INFO -   Iteration 1: 9.93ms (rows: 1)
+2026-02-06 21:10:37,083 - INFO -   Iteration 2: 0.63ms (rows: 1)
+2026-02-06 21:10:37,085 - INFO -   Iteration 3: 0.61ms (rows: 1)
+2026-02-06 21:10:37,086 - INFO -   Iteration 4: 0.67ms (rows: 1)
+2026-02-06 21:10:37,087 - INFO -   Iteration 5: 0.47ms (rows: 1)
+2026-02-06 21:10:37,087 - INFO - 
+Executing Q2_ST_Intersects: ST_Intersects multi-feature
+2026-02-06 21:10:37,089 - INFO -   Iteration 1: 1.85ms (rows: 1)
+2026-02-06 21:10:37,091 - INFO -   Iteration 2: 0.71ms (rows: 1)
+2026-02-06 21:10:37,092 - INFO -   Iteration 3: 1.00ms (rows: 1)
+2026-02-06 21:10:37,094 - INFO -   Iteration 4: 0.72ms (rows: 1)
+2026-02-06 21:10:37,095 - INFO -   Iteration 5: 0.62ms (rows: 1)
+2026-02-06 21:10:37,095 - INFO - 
+Executing Q3_ST_DWithin: ST_DWithin proximity search
+2026-02-06 21:10:37,097 - INFO -   Iteration 1: 1.48ms (rows: 1)
+2026-02-06 21:10:37,098 - INFO -   Iteration 2: 0.52ms (rows: 1)
+2026-02-06 21:10:37,099 - INFO -   Iteration 3: 0.62ms (rows: 1)
+2026-02-06 21:10:37,101 - INFO -   Iteration 4: 0.61ms (rows: 1)
+2026-02-06 21:10:37,102 - INFO -   Iteration 5: 0.71ms (rows: 1)
+2026-02-06 21:10:37,102 - INFO - 
+Executing Q4_RPC_Search: RPC-style bbox + category search
+2026-02-06 21:10:37,105 - INFO -   Iteration 1: 2.86ms (rows: 1)
+2026-02-06 21:10:37,106 - INFO -   Iteration 2: 0.53ms (rows: 1)
+2026-02-06 21:10:37,108 - INFO -   Iteration 3: 0.54ms (rows: 1)
+2026-02-06 21:10:37,109 - INFO -   Iteration 4: 0.58ms (rows: 1)
+2026-02-06 21:10:37,110 - INFO -   Iteration 5: 0.57ms (rows: 1)
+2026-02-06 21:10:37,110 - INFO - 
+Executing Q5_Partitioned: Partitioned query (2026-2028 range)
+2026-02-06 21:10:37,113 - INFO -   Iteration 1: 2.21ms (rows: 1)
+2026-02-06 21:10:37,114 - INFO -   Iteration 2: 0.72ms (rows: 1)
+2026-02-06 21:10:37,115 - INFO -   Iteration 3: 0.70ms (rows: 1)
+2026-02-06 21:10:37,117 - INFO -   Iteration 4: 0.90ms (rows: 1)
+2026-02-06 21:10:37,118 - INFO -   Iteration 5: 0.75ms (rows: 1)
+2026-02-06 21:10:37,119 - INFO - 
+Executing Q6_Index_Range: Index range scan
+2026-02-06 21:10:37,120 - INFO -   Iteration 1: 1.05ms (rows: 1)
+2026-02-06 21:10:37,122 - INFO -   Iteration 2: 0.66ms (rows: 1)
+2026-02-06 21:10:37,123 - INFO -   Iteration 3: 0.69ms (rows: 1)
+2026-02-06 21:10:37,124 - INFO -   Iteration 4: 0.57ms (rows: 1)
+2026-02-06 21:10:37,125 - INFO -   Iteration 5: 0.53ms (rows: 1)
+2026-02-06 21:10:37,125 - INFO - 
+Executing Q7_Spatial_Index: Spatial index bbox search
+2026-02-06 21:10:37,128 - INFO -   Iteration 1: 1.37ms (rows: 1)
+2026-02-06 21:10:37,128 - INFO -   Iteration 2: 0.45ms (rows: 1)
+2026-02-06 21:10:37,129 - INFO -   Iteration 3: 0.43ms (rows: 1)
+2026-02-06 21:10:37,131 - INFO -   Iteration 4: 0.42ms (rows: 1)
+2026-02-06 21:10:37,132 - INFO -   Iteration 5: 0.46ms (rows: 1)
+2026-02-06 21:10:37,132 - INFO - 
+Executing Q8_Aggregate_Stats: Aggregate with spatial stats
+2026-02-06 21:10:37,139 - INFO -   Iteration 1: 6.31ms (rows: 5)
+2026-02-06 21:10:37,143 - INFO -   Iteration 2: 3.84ms (rows: 5)
+2026-02-06 21:10:37,147 - INFO -   Iteration 3: 3.19ms (rows: 5)
+2026-02-06 21:10:37,151 - INFO -   Iteration 4: 3.07ms (rows: 5)
+2026-02-06 21:10:37,155 - INFO -   Iteration 5: 3.11ms (rows: 5)
+2026-02-06 21:10:37,155 - INFO - 
+Executing Q9_Join_Catalog: Join with layer metadata
+2026-02-06 21:10:37,159 - INFO -   Iteration 1: 3.31ms (rows: 1)
+2026-02-06 21:10:37,161 - INFO -   Iteration 2: 0.79ms (rows: 1)
+2026-02-06 21:10:37,162 - INFO -   Iteration 3: 0.71ms (rows: 1)
+2026-02-06 21:10:37,164 - INFO -   Iteration 4: 0.78ms (rows: 1)
+2026-02-06 21:10:37,165 - INFO -   Iteration 5: 1.18ms (rows: 1)
+2026-02-06 21:10:37,166 - INFO - 
+Executing Q10_Complex_GIS: Complex GIS computation
+2026-02-06 21:10:37,170 - INFO -   Iteration 1: 3.50ms (rows: 1)
+2026-02-06 21:10:37,171 - INFO -   Iteration 2: 1.04ms (rows: 1)
+2026-02-06 21:10:37,173 - INFO -   Iteration 3: 0.94ms (rows: 1)
+2026-02-06 21:10:37,174 - INFO -   Iteration 4: 0.89ms (rows: 1)
+2026-02-06 21:10:37,176 - INFO -   Iteration 5: 0.89ms (rows: 1)
+2026-02-06 21:10:37,176 - INFO - 
+================================================================================
+2026-02-06 21:10:37,176 - INFO - COLLECTING THROUGHPUT METRICS (QPS)
+2026-02-06 21:10:37,176 - INFO - ================================================================================
+2026-02-06 21:10:47,176 - INFO - Queries executed: 31661
+2026-02-06 21:10:47,176 - INFO - Elapsed time: 10.00s
+2026-02-06 21:10:47,176 - INFO - QPS: 3166.05
+2026-02-06 21:10:47,176 - INFO - 
+================================================================================
+2026-02-06 21:10:47,176 - INFO - COLLECTING CPU & MEMORY STATS (pg_stat_statements)
+2026-02-06 21:10:47,177 - INFO - ================================================================================
+2026-02-06 21:10:47,183 - INFO - Total calls: 31764
+2026-02-06 21:10:47,183 - INFO - Avg exec time: 0.33ms
+2026-02-06 21:10:47,184 - INFO - Cache hit ratio: 1074.00%
+2026-02-06 21:10:47,184 - INFO - 
+================================================================================
+2026-02-06 21:10:47,184 - INFO - COLLECTING I/O STATS (pg_statio_user_tables)
+2026-02-06 21:10:47,184 - INFO - ================================================================================
+2026-02-06 21:10:47,191 - INFO - Heap blocks (read/hit): 1027/32592
+2026-02-06 21:10:47,191 - INFO - Index blocks (read/hit): 107/44372
+2026-02-06 21:10:47,191 - INFO - Overall I/O cache hit: 98.55%
+2026-02-06 21:10:47,191 - INFO - 
+================================================================================
+2026-02-06 21:10:47,191 - INFO - COLLECTING CONNECTION METRICS
+2026-02-06 21:10:47,191 - INFO - ================================================================================
+2026-02-06 21:10:47,195 - INFO - Total connections: 1
+2026-02-06 21:10:47,195 - INFO - Active: 1, Idle: 0
+2026-02-06 21:10:47,195 - INFO - 
+================================================================================
+2026-02-06 21:10:47,195 - INFO - STORING METRICS IN DATABASE
+2026-02-06 21:10:47,195 - INFO - ================================================================================
+2026-02-06 21:10:47,226 - INFO - Metrics stored successfully in benchmarking schema
+2026-02-06 21:10:47,226 - INFO - 
+================================================================================
+2026-02-06 21:10:47,226 - INFO - SAVING METRICS TO JSON
+2026-02-06 21:10:47,226 - INFO - ================================================================================
+2026-02-06 21:10:47,228 - ERROR - Failed to save metrics: Object of type Decimal is not JSON serializable
+2026-02-06 21:10:47,228 - INFO - 
+================================================================================
+2026-02-06 21:10:47,228 - INFO - BASELINE METRICS COLLECTION COMPLETED SUCCESSFULLY
+2026-02-06 21:10:47,228 - INFO - End Time: 2026-02-07T00:10:47.228136Z
+2026-02-06 21:10:47,228 - INFO - ================================================================================
+2026-02-06 21:11:06,318 - INFO - 
+================================================================================
+2026-02-06 21:11:06,318 - INFO - STAGE 4 DIA 1: BASELINE METRICS COLLECTION
+2026-02-06 21:11:06,318 - INFO - Start Time: 2026-02-07T00:11:06.318948Z
+2026-02-06 21:11:06,318 - INFO - Batch ID: be37c2d1-8a4a-4a01-a29d-e9fe46892bfb
+2026-02-06 21:11:06,318 - INFO - Optimization Level: BASELINE
+2026-02-06 21:11:06,320 - INFO - ================================================================================
+2026-02-06 21:11:06,350 - INFO - Connected to PostgreSQL: localhost:5432/biblioteca
+2026-02-06 21:11:06,350 - INFO - ================================================================================
+2026-02-06 21:11:06,350 - INFO - COLLECTING QUERY LATENCY METRICS
+2026-02-06 21:11:06,350 - INFO - ================================================================================
+2026-02-06 21:11:06,354 - INFO - Using category filter for Q4: Limite
+2026-02-06 21:11:06,354 - INFO - 
+Executing Q1_ST_Contains: ST_Contains geometry search
+2026-02-06 21:11:06,363 - INFO -   Iteration 1: 8.71ms (rows: 1)
+2026-02-06 21:11:06,365 - INFO -   Iteration 2: 0.68ms (rows: 1)
+2026-02-06 21:11:06,366 - INFO -   Iteration 3: 0.66ms (rows: 1)
+2026-02-06 21:11:06,368 - INFO -   Iteration 4: 0.68ms (rows: 1)
+2026-02-06 21:11:06,369 - INFO -   Iteration 5: 0.53ms (rows: 1)
+2026-02-06 21:11:06,369 - INFO - 
+Executing Q2_ST_Intersects: ST_Intersects multi-feature
+2026-02-06 21:11:06,371 - INFO -   Iteration 1: 1.34ms (rows: 1)
+2026-02-06 21:11:06,373 - INFO -   Iteration 2: 0.77ms (rows: 1)
+2026-02-06 21:11:06,374 - INFO -   Iteration 3: 0.63ms (rows: 1)
+2026-02-06 21:11:06,374 - INFO -   Iteration 4: 0.63ms (rows: 1)
+2026-02-06 21:11:06,375 - INFO -   Iteration 5: 0.62ms (rows: 1)
+2026-02-06 21:11:06,375 - INFO - 
+Executing Q3_ST_DWithin: ST_DWithin proximity search
+2026-02-06 21:11:06,377 - INFO -   Iteration 1: 0.81ms (rows: 1)
+2026-02-06 21:11:06,378 - INFO -   Iteration 2: 0.51ms (rows: 1)
+2026-02-06 21:11:06,378 - INFO -   Iteration 3: 0.68ms (rows: 1)
+2026-02-06 21:11:06,380 - INFO -   Iteration 4: 0.50ms (rows: 1)
+2026-02-06 21:11:06,381 - INFO -   Iteration 5: 0.58ms (rows: 1)
+2026-02-06 21:11:06,382 - INFO - 
+Executing Q4_RPC_Search: RPC-style bbox + category search
+2026-02-06 21:11:06,384 - INFO -   Iteration 1: 1.90ms (rows: 1)
+2026-02-06 21:11:06,385 - INFO -   Iteration 2: 0.56ms (rows: 1)
+2026-02-06 21:11:06,386 - INFO -   Iteration 3: 0.47ms (rows: 1)
+2026-02-06 21:11:06,387 - INFO -   Iteration 4: 0.52ms (rows: 1)
+2026-02-06 21:11:06,388 - INFO -   Iteration 5: 0.46ms (rows: 1)
+2026-02-06 21:11:06,388 - INFO - 
+Executing Q5_Partitioned: Partitioned query (2026-2028 range)
+2026-02-06 21:11:06,391 - INFO -   Iteration 1: 1.50ms (rows: 1)
+2026-02-06 21:11:06,392 - INFO -   Iteration 2: 0.73ms (rows: 1)
+2026-02-06 21:11:06,393 - INFO -   Iteration 3: 0.64ms (rows: 1)
+2026-02-06 21:11:06,394 - INFO -   Iteration 4: 0.68ms (rows: 1)
+2026-02-06 21:11:06,396 - INFO -   Iteration 5: 0.75ms (rows: 1)
+2026-02-06 21:11:06,396 - INFO - 
+Executing Q6_Index_Range: Index range scan
+2026-02-06 21:11:06,397 - INFO -   Iteration 1: 1.05ms (rows: 1)
+2026-02-06 21:11:06,399 - INFO -   Iteration 2: 0.66ms (rows: 1)
+2026-02-06 21:11:06,400 - INFO -   Iteration 3: 0.68ms (rows: 1)
+2026-02-06 21:11:06,401 - INFO -   Iteration 4: 0.55ms (rows: 1)
+2026-02-06 21:11:06,402 - INFO -   Iteration 5: 0.54ms (rows: 1)
+2026-02-06 21:11:06,402 - INFO - 
+Executing Q7_Spatial_Index: Spatial index bbox search
+2026-02-06 21:11:06,404 - INFO -   Iteration 1: 1.04ms (rows: 1)
+2026-02-06 21:11:06,405 - INFO -   Iteration 2: 0.52ms (rows: 1)
+2026-02-06 21:11:06,406 - INFO -   Iteration 3: 0.58ms (rows: 1)
+2026-02-06 21:11:06,407 - INFO -   Iteration 4: 0.90ms (rows: 1)
+2026-02-06 21:11:06,408 - INFO -   Iteration 5: 0.57ms (rows: 1)
+2026-02-06 21:11:06,408 - INFO - 
+Executing Q8_Aggregate_Stats: Aggregate with spatial stats
+2026-02-06 21:11:06,413 - INFO -   Iteration 1: 3.51ms (rows: 5)
+2026-02-06 21:11:06,417 - INFO -   Iteration 2: 2.92ms (rows: 5)
+2026-02-06 21:11:06,421 - INFO -   Iteration 3: 3.56ms (rows: 5)
+2026-02-06 21:11:06,424 - INFO -   Iteration 4: 3.02ms (rows: 5)
+2026-02-06 21:11:06,428 - INFO -   Iteration 5: 2.91ms (rows: 5)
+2026-02-06 21:11:06,428 - INFO - 
+Executing Q9_Join_Catalog: Join with layer metadata
+2026-02-06 21:11:06,431 - INFO -   Iteration 1: 2.32ms (rows: 1)
+2026-02-06 21:11:06,433 - INFO -   Iteration 2: 1.06ms (rows: 1)
+2026-02-06 21:11:06,435 - INFO -   Iteration 3: 0.90ms (rows: 1)
+2026-02-06 21:11:06,437 - INFO -   Iteration 4: 0.79ms (rows: 1)
+2026-02-06 21:11:06,438 - INFO -   Iteration 5: 0.81ms (rows: 1)
+2026-02-06 21:11:06,439 - INFO - 
+Executing Q10_Complex_GIS: Complex GIS computation
+2026-02-06 21:11:06,441 - INFO -   Iteration 1: 2.19ms (rows: 1)
+2026-02-06 21:11:06,442 - INFO -   Iteration 2: 0.97ms (rows: 1)
+2026-02-06 21:11:06,444 - INFO -   Iteration 3: 0.91ms (rows: 1)
+2026-02-06 21:11:06,445 - INFO -   Iteration 4: 0.86ms (rows: 1)
+2026-02-06 21:11:06,446 - INFO -   Iteration 5: 0.86ms (rows: 1)
+2026-02-06 21:11:06,446 - INFO - 
+================================================================================
+2026-02-06 21:11:06,446 - INFO - COLLECTING THROUGHPUT METRICS (QPS)
+2026-02-06 21:11:06,446 - INFO - ================================================================================
+2026-02-06 21:11:16,448 - INFO - Queries executed: 32057
+2026-02-06 21:11:16,448 - INFO - Elapsed time: 10.00s
+2026-02-06 21:11:16,448 - INFO - QPS: 3205.62
+2026-02-06 21:11:16,448 - INFO - 
+================================================================================
+2026-02-06 21:11:16,448 - INFO - COLLECTING CPU & MEMORY STATS (pg_stat_statements)
+2026-02-06 21:11:16,448 - INFO - ================================================================================
+2026-02-06 21:11:16,453 - INFO - Total calls: 63992
+2026-02-06 21:11:16,453 - INFO - Avg exec time: 0.23ms
+2026-02-06 21:11:16,453 - INFO - Cache hit ratio: 1729.00%
+2026-02-06 21:11:16,453 - INFO - 
+================================================================================
+2026-02-06 21:11:16,453 - INFO - COLLECTING I/O STATS (pg_statio_user_tables)
+2026-02-06 21:11:16,454 - INFO - ================================================================================
+2026-02-06 21:11:16,462 - INFO - Heap blocks (read/hit): 1096/34205
+2026-02-06 21:11:16,463 - INFO - Index blocks (read/hit): 115/44465
+2026-02-06 21:11:16,463 - INFO - Overall I/O cache hit: 98.48%
+2026-02-06 21:11:16,463 - INFO - 
+================================================================================
+2026-02-06 21:11:16,463 - INFO - COLLECTING CONNECTION METRICS
+2026-02-06 21:11:16,463 - INFO - ================================================================================
+2026-02-06 21:11:16,466 - INFO - Total connections: 1
+2026-02-06 21:11:16,466 - INFO - Active: 1, Idle: 0
+2026-02-06 21:11:16,466 - INFO - 
+================================================================================
+2026-02-06 21:11:16,466 - INFO - STORING METRICS IN DATABASE
+2026-02-06 21:11:16,466 - INFO - ================================================================================
+2026-02-06 21:11:16,500 - INFO - Metrics stored successfully in benchmarking schema
+2026-02-06 21:11:16,500 - INFO - 
+================================================================================
+2026-02-06 21:11:16,501 - INFO - SAVING METRICS TO JSON
+2026-02-06 21:11:16,501 - INFO - ================================================================================
+2026-02-06 21:11:16,502 - INFO - Metrics saved to METRICS_BASELINE_FEB7.json
+2026-02-06 21:11:16,502 - INFO - 
+================================================================================
+2026-02-06 21:11:16,503 - INFO - BASELINE METRICS COLLECTION COMPLETED SUCCESSFULLY
+2026-02-06 21:11:16,503 - INFO - End Time: 2026-02-07T00:11:16.503663Z
+2026-02-06 21:11:16,503 - INFO - ================================================================================

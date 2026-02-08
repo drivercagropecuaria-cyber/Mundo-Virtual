@@ -1,0 +1,495 @@
+﻿# Relatorio de estado atual
+
+Data: 2026-02-07
+
+## 1) Estrutura geral (nivel raiz)
+
+Arquivos no nivel raiz:
+- .env.example
+- archives/2026-02-07/zips/archives/2026-02-07/zips/.github.zip
+- archives/2026-02-07/venv/archives/2026-02-07/zips/archives/2026-02-07/venv/archives/2026-02-07/zips/.venv.zip
+- archives/2026-02-07/venv/archives/2026-02-07/venv/archives/2026-02-07/zips/archives/2026-02-07/venv/archives/2026-02-07/venv/archives/2026-02-07/zips/.venv-gis.zip
+- archives/2026-02-07/zips/archives/2026-02-07/zips/.vscode.zip
+- archives/2026-02-07/zips/archives/2026-02-07/zips/_kml_test.zip
+- ADICIONAR_POSTGRESQL_PATH_WINDOWS.md
+- ANALISE_CONSOLIDADA_REVISAO_COMPLETA_6FEB.md
+- analyze_bounds.ps1
+- archives/2026-02-07/backups_raw/backup_villa_canabrava.sql
+- BENCHMARKING_SETUP_REPORT_FEB7.md
+- archives/2026-02-07/zips/archives/2026-02-07/zips/BIBLIOTECA.zip
+- collect_baseline_metrics.py
+- collect_evidence.ps1
+- collect_opt1_metrics.py
+- collect_opt2_opt5_metrics_template.py
+- COMUNICACAO_FINAL_P0_FASE2.md
+- CONCLUSAO_REVISAO_RECOMENDACOES_FINAIS.md
+- CONSOLIDATED_VALIDATION_REPORT_WEEK2_4.json
+- CONTINUIDADE_PROJETO_EXECUCAO_HOJE_FEB6.md
+- CREATIVE_P0_IMPROVEMENTS_FASE2.md
+- DAILY_SYNC_01_FEB7_CONVOCACAO.md
+- DB_VALIDATION_REPORT_POST_REMEDIATION.json
+- doc_generation_pipeline_v1.py
+- docker-compose.yml
+- Documentacao Auxiliar  Mundo Virtual Villa.zip
+- ESTADO_ATUAL_SPRINT_2.md
+- EVIDENCE_READY_CHECKLIST.md
+- EVIDENCIAS_PADRAO.md
+- archives/2026-02-07/logs/EXEC_REPORT_6FEB2026.md
+- archives/2026-02-07/logs/EXEC_REPORT_OPTIMIZATION_archives/2026-02-07/logs/STAGE2_OPT1_OPT5_FEB6.md
+- archives/2026-02-07/logs/EXEC_REPORT_P0_FINAL_6FEB.md
+- archives/2026-02-07/logs/EXEC_REPORT_P0_FINAL_FASE2_6FEB.md
+- archives/2026-02-07/logs/EXEC_REPORT_SHADOW_DEPLOY_VALIDATION_6FEB.md
+- archives/2026-02-07/logs/EXEC_REPORT_SHADOW_DEPLOY_VALIDATOR.md
+- archives/2026-02-07/logs/EXEC_REPORT_SPRINT_1_PRE_FLIGHT.md
+- archives/2026-02-07/logs/EXEC_REPORT_archives/2026-02-07/logs/STAGE3_ROLLBACK_VALIDATION_FEB6.md
+- EXECUCAO_ATUALIZACAO_STATUS_SESSSAO_6FEB.md
+- EXECUCAO_PROJETO_STATUS_6FEB.md
+- EXECUTOR_FUNCOES_FINALIZACAO.md
+- archives/2026-02-07/backups_raw/geometrias_dump_FEB6.sql
+- GETTING_STARTED_WEEK2_4.md
+- gis_async_geometry_validator.py
+- gis_async_pipeline_results_v2.json
+- archives/2026-02-07/logs/gis_async_pipeline_results_v2.log
+- archives/2026-02-07/logs/gis_async_pipeline_v2.log
+- gis_async_pipeline_validator_v2.env.example
+- gis_async_pipeline_validator_v2.py
+- GIS_BOUNDS_REPORT_P0_RECONCILIATION.md
+- GO_LIVE_CHECKPOINTS_CRITERIA.md
+- grafana_dashboard_rastreabilidade_v1.json
+- GUIA_TECNICO_PREFLIGHT_PATHS.md
+- HANDOFF_EXECUTOR_PARA_VALIDADOR.md
+- import_summary.json
+- INDEX_INFRAESTRUTURA_WEEK2_4.md
+- INDICE_EXECUCAO_PRODUCAO_SPRINT3.md
+- INDICE_REVISAO_COMPLETA_6FEB.md
+- INSTALAR_POSTGRESQL_WINDOWS.md
+- KICKOFF_EXECUCAO_HOJE_6FEB.md
+- archives/2026-02-07/metrics/METRICS_BASELINE.json
+- archives/2026-02-07/metrics/METRICS_BASELINE_FEB7.json
+- archives/2026-02-07/metrics/METRICS_COLLECTION_LOG_FEB7.txt
+- archives/2026-02-07/metrics/METRICS_COLLECTION_RUN_FEB7.txt
+- archives/2026-02-07/metrics/METRICS_OPT1_FEB7.json
+- archives/2026-02-07/metrics/METRICS_OPT1_STAGE2_20260206_165714.json
+- archives/2026-02-07/metrics/METRICS_OPT2_OPT5_BATCH_FEB7.json
+- NOTIFICACAO_AGENT_DB_archives/2026-02-07/logs/STAGE2_3_FEB6.md
+- NOTIFICACAO_CACHE_AGENT_archives/2026-02-07/logs/STAGE2_3_FEB6.md
+- NOTIFICACAO_DOCS_AGENT_archives/2026-02-07/logs/STAGE2_3_FEB6.md
+- NOTIFICACAO_EXECUTOR_ORQUESTRADOR_archives/2026-02-07/logs/STAGE2_3_FEB6.md
+- NOTIFICACAO_OBSERVABILITY_AGENT_archives/2026-02-07/logs/STAGE2_3_FEB6.md
+- NOTIFICACAO_TEAM_BROADCAST_archives/2026-02-07/logs/STAGE2_3_COMPLETO_FEB6.md
+- OPT_EXECUTION_PLAN_PARALELO_6FEB.md
+- OPT1_DRYRUN_LOG.txt
+- OPT2_COLUMNAR_STORAGE_GIS_MIGRATION.sql
+- OPT2_COLUMNAR_STORAGE_VALIDATION_REPORT.json
+- OPT2_COLUMNAR_STORAGE_VALIDATOR.py
+- OPT2_OPT5_PERFORMANCE_SIMULATION_REPORT.json
+- OPT2_OPT5_PERFORMANCE_SIMULATOR.py
+- OPT3_INDEXED_VIEWS_RPC_SEARCH.sql
+- OPT3_INDEXED_VIEWS_RPC_VALIDATION_REPORT.json
+- OPT3_INDEXED_VIEWS_VALIDATOR.py
+- OPT4_OPT5_PARTITION_SCHEDULING.sql
+- OPT45_PARTITION_SCHEDULING_VALIDATION_REPORT.json
+- OPT45_PARTITION_SCHEDULING_VALIDATOR.py
+- ORQUESTRADOR_SPRINT_3_ARQUITETURA_AGENTES.md
+- P0_CREATIVE_IMPROVEMENTS_FRAMEWORK.md
+- P0_GOVERNANCA_CONSOLIDACAO_FINAL.md
+- P0_REGISTRO_OFICIAL_FASE2_FECHAMENTO.md
+- PHASE_2_FINAL_CLOSURE_SIGNOFF_6FEB.md
+- PLANO_ACAO_EXECUTIVO_6FEB_REVISADO.md
+- POST_DEPLOY_MONITORING_CHECKLIST.md
+- POST_DEPLOY_STATUS_REPORT_FEB6.md
+- POSTGRESQL_PORT_CONFIG.md
+- PREFLIGHT_VALIDATION_REPORT_6FEB.md
+- PRODUCTION_DEPLOY_PACKAGE_FEB6.md
+- PRODUCTION_DEPLOYMENT_OPT1_MON17.py
+- PRODUCTION_PRE_CUTOVER_CHECKLIST.md
+- PROXIMA_FASE_KICKOFF_EXECUTIVO_FEB7.md
+- PROXIMOS_PASSOS_ACAO_IMEDIATA.md
+- README_EXECUCAO.md
+- redis_bounds_cache_config.sh
+- redis_ha_sentinel_circuit_breaker_v1.py
+- REPORT_ULTIMOS_25_COMANDOS.md
+- archives/2026-02-07/logs/REPORT_ULTIMOS_25_COMANDOS_RAW.txt
+- requirements-gis.txt
+- RESULTADO_EXECUCAO_INICIAL_FEB6.md
+- ROADMAP_WEEK2_4_STAGING_PREP.md
+- ROLLBACK_OPT1_temporal_partitioning_geometrias.sql
+- ROLLBACK_OPT2_columnar_storage_gis.sql
+- ROLLBACK_OPT3_indexed_views_rpc_search.sql
+- ROLLBACK_OPT4_auto_partition_creation_2029_plus.sql
+- ROLLBACK_OPT5_mv_refresh_scheduling_cron.sql
+- ROLLOUT_PLAN_4_SEMANAS.md
+- ROLLOUT_PLAN_4WEEKS_FEB6.md
+- RUN_ALL_VALIDATORS_WEEK2_4.py
+- run_preflight_validation.ps1
+- run_stage2_opt1_dryrun.ps1
+- run_stage4_executor.py
+- RUNBOOK_OPT1_PRODUCTION_ROLLOUT.md
+- setup_benchmarking.py
+- setup_benchmarking_schema.sql
+- SPRINT_1_CONSOLIDACAO_FINAL.md
+- SPRINT_2_ACTION_ITEMS.md
+- SPRINT_2_BACKLOG_PRIORIZADO.md
+- SPRINT_2_CONSOLIDACAO_EXECUTIVA.md
+- SPRINT_2_CONSOLIDACAO_FINAL.md
+- SPRINT_2_DASHBOARD_EXECUTIVO.md
+- SPRINT_2_EXEC_REPORT.md
+- SPRINT_2_FASE_3_KICKOFF.md
+- SPRINT_2_INDICE_DOCUMENTOS.md
+- SPRINT_2_KPIS.md
+- SPRINT_2_RESUMO_ORQUESTRADOR.md
+- SPRINT_2_STATUS_FINAL_PARA_VALIDADOR.md
+- SPRINT_2_SUMARIO_METRICAS_FINAIS.md
+- SPRINT_2_TECH_OPTIMIZATIONS.md
+- SPRINT_2_VALIDACAO_ARTEFATOS.md
+- SPRINT_3_CONSOLIDACAO_FINAL.md
+- SPRINT_3_CONSOLIDACAO_SHADOW_VALIDATION.md
+- SPRINT_3_DOCUMENTACAO_INDEX.md
+- SPRINT_3_ESTADO_PRONTO_EXECUCAO.md
+- SPRINT_3_EXEC_PROGRESS.md
+- SPRINT_3_EXECUTION_MASTER_PLAN_FEB6.md
+- SPRINT_3_EXECUTOR_KICKOFF.md
+- SPRINT_3_KPIS.md
+- SPRINT_3_OPT1_VALIDATION_HANDOFF.md
+- SPRINT_3_QUICKSTART_CHECKLIST.md
+- SPRINT_3_README_INICIO_RAPIDO.md
+- SPRINT_3_TEST_INTEGRATION.md
+- SPRINT3_EXECUCAO_COMPLETA_MESTRE.md
+- SPRINT3_EXECUTOR_FINAL.py
+- SPRINT3_EXECUTOR_WINDOWS_COMPATIBLE.py
+- SPRINT3_INDICE_COMPLETO.md
+- SPRINT3_KICKOFF_CEREMONY_OPT1_APPROVED.md
+- SPRINT3_KICKOFF_EXECUCAO_HOJE_FEB6.md
+- SPRINT3_OPT1_OPT5_CONSOLIDATION_REPORT.md
+- SPRINT3_OPT1_VALIDATION_COMPLETE_FINAL.md
+- SPRINT3_RASTREABILIDADE_MASTER_ATUALIZADA.md
+- SPRINT3_RESULTADO_EXECUCAO_FEB6.md
+- SPRINT3_RESUMO_EXECUTIVO_FEB6.md
+- SPRINT3_SHADOW_DEPLOYMENT_EXECUTOR.py
+- SPRINT3_SHADOW_DEPLOYMENT_PLAN_WEEK2.md
+- SPRINT3_START_HERE_README.md
+- SPRINT3_VALIDADOR_METRICAS.py
+- SPRINT3_VALIDADOR_METRICAS_FIXED.py
+- archives/2026-02-07/logs/STAGE_1_PEER_REVIEW_REPORT.md
+- archives/2026-02-07/logs/STAGE_1_PEER_REVIEW_REPORT_6FEB.md
+- archives/2026-02-07/logs/STAGE_2_DRYRUN_REPORT_6FEB.md
+- stage_2_opt1_dryrun_validator.py
+- archives/2026-02-07/logs/STAGE_4_CAPACITY_PLANNING_DESIGN.md
+- archives/2026-02-07/logs/STAGE2_OPT1_DRYRUN_LOG_20260206_165714.txt
+- archives/2026-02-07/logs/STAGE2_OPT1_DRYRUN_LOG_20260206_165750.txt
+- stage2_opt1_dryrun_simple.py
+- archives/2026-02-07/logs/STAGE2_OPT1_DRYRUN_VALIDATION_OFFLINE.md
+- archives/2026-02-07/logs/STAGE3_ROLLBACK_PLAN_VALIDATION.md
+- archives/2026-02-07/logs/STAGE4_BASELINE_VALIDATION_REPORT_FEB6.md
+- archives/2026-02-07/logs/STAGE4_CAPACITY_PLANNING_OPT1.md
+- archives/2026-02-07/logs/STAGE4_COMPREHENSIVE_COMPARISON_REPORT_FEB7.md
+- archives/2026-02-07/logs/STAGE4_DIA1_DELIVERABLES_SUMMARY.md
+- archives/2026-02-07/logs/STAGE4_DIA2_EXECUCAO_OPT1_PRODUCAO.md
+- archives/2026-02-07/logs/STAGE4_EXECUCAO_FINAL_FEB7.md
+- archives/2026-02-07/logs/STAGE4_EXECUTION_COMPLETE_FEB6.md
+- archives/2026-02-07/logs/STAGE4_EXECUTION_FINAL_SUMMARY_FEB6.md
+- archives/2026-02-07/logs/STAGE4_EXECUTOR_LOG_20260206_164326.txt
+- archives/2026-02-07/logs/STAGE4_EXECUTOR_LOG_20260206_164335.txt
+- archives/2026-02-07/logs/STAGE4_EXECUTOR_LOG_20260206_164352.txt
+- archives/2026-02-07/logs/STAGE4_EXECUTOR_LOG_20260206_164404.txt
+- STAGE4_FULL_SIMULATOR.py
+- archives/2026-02-07/logs/STAGE4_LOCAL_ENV_SETUP_LOG_FEB6.md
+- archives/2026-02-07/logs/STAGE4_LOCAL_PERFORMANCE_REPORT_FEB6.md
+- archives/2026-02-07/logs/STAGE4_LOCAL_READINESS_FEB6.md
+- archives/2026-02-07/logs/STAGE4_MASTER_STATUS.md
+- STAGE4_archives/2026-02-07/metrics/METRICS_COMPLETE_FEB6.json
+- STAGE4_NEXTGEN_EXECUTOR.py
+- STAGE4_OPTIMIZATION_EXECUTOR.py
+- archives/2026-02-07/logs/STAGE4_PERFORMANCE_COMPARISON_FEB6.md
+- archives/2026-02-07/logs/STAGE4_QUICK_START.md
+- archives/2026-02-07/logs/STAGE4_SIGN_OFF_DECISION_FEB6.md
+- archives/2026-02-07/logs/STAGE4_SIMULATOR_LOG_20260206_164519.txt
+- archives/2026-02-07/logs/STAGE4_SIMULATOR_LOG_20260206_165426.txt
+- STAGE4_EXECUTOR_WINDOWS.py
+- STAGING_DEPLOY_SCRIPT_WEEK1.ps1
+- STAGING_DEPLOYMENT_SCRIPT_WEEK1.py
+- STAGING_TRANSITION_REPORT.md
+- STAGING_TRANSITION_REPORT_FEB6.md
+- STARTUP_OPT_EXECUTION_DOCKER_LOCAL.md
+- STATUS_EXECUCAO_FINAL_WEEK2_4.md
+- SUMARIO_EXECUCAO_SPRINT3_COMPLETO.md
+- SUMARIO_EXECUCAO_WEEK2_4_INFRASTRUCTURE.md
+- SUMARIO_EXECUTIVO_1_PAGINA.md
+- SUPABASE_CREDENTIALS_TEMPLATE.env
+- TIMELINE_EXECUTIVA_PRODUCAO.md
+- TIMING_VALIDATORS_EXECUTION.md
+- validate_opt1_feb7.ps1
+- validate_sprint2_migrations.ps1
+- validate_sprint2_migrations_simple.py
+- validate-gis.ps1
+- validation_report.md
+- VALIDATION_REPORT_P0_FINAL.md
+- VALIDATION_REPORT_SPRINT_1.md
+- VALIDATION_REPORT_SPRINT_2.md
+
+Pastas no nivel raiz:
+- .github
+- archives/2026-02-07/venv/archives/2026-02-07/venv/.venv
+- archives/2026-02-07/venv/archives/2026-02-07/venv/archives/2026-02-07/venv/archives/2026-02-07/venv/.venv-gis
+- .vscode
+- _kml_test
+- backup
+- BIBLIOTECA
+- BIBLIOTECA_git_backup
+- db
+- docs
+- Documentacao Auxiliar  Mundo Virtual Villa
+- exports
+- GEMINI.md
+- KLM localidade
+- plans
+- reports
+- scripts
+- archives/2026-02-07/shadow/archives/2026-02-07/shadow/shadow_deployment_results
+- Villa_Canabrava_Digital_World
+
+## 2) Conteudo de cada pasta (um nivel abaixo)
+
+Pasta .github:
+- workflows
+
+Pasta archives/2026-02-07/venv/archives/2026-02-07/venv/.venv:
+- .gitignore
+- pyvenv.cfg
+- Include
+- Lib
+- Scripts
+- share
+
+Pasta archives/2026-02-07/venv/archives/2026-02-07/venv/archives/2026-02-07/venv/archives/2026-02-07/venv/.venv-gis:
+- pyvenv.cfg
+- Include
+- Lib
+- Scripts
+
+Pasta .vscode:
+- settings.json
+
+Pasta _kml_test:
+- Perimetro.kml
+
+Pasta backup:
+- geometrias.dump
+
+Pasta BIBLIOTECA:
+- .gitignore
+- ANALISE_DETALHADA_PROJETO_COMPLETO.md
+- AUDITORIA_EXTERNA_COMPLETA_PARECER_FINAL.md
+- AUTOPSIA_ESTADO_ATUAL_6FEB_COMPLETA.md
+- BLOQUEADORES_PRE_SEMANA_2.md
+- CONCLUSAO_EXECUCAO_6FEB_RESUMO_FINAL.md
+- CONFIRMACAO_ESTRUTURA_PRONTA.md
+- CONFORMIDADE_POS_AUDITORIA_6FEB.md
+- CORRECOES_INCONSISTENCIAS_DOCUMENTAIS.md
+- DIAGNOSTICO_9_PROBLEMAS_CRITICOS.md
+- DIAGNOSTICO_CORRECOES_6FEB_RELATORIO_FINAL.md
+- DOCKER_SUPABASE_SETUP.md
+- ESTADO_DE_VERDADE_UNICO_6FEB.md
+- EXECUCAO_FEEDBACK_AUDITOR_6FEB_FINAL.md
+- FASE_1_READY_FOR_EXECUTION.md
+- FASE_2_ESTRUTURA_ORGANIZADA.md
+- FASE_2_ESTRUTURA_PRONTA.md
+- FASE_2_INDICE_EXECUCAO.md
+- FASE_2_QUICKSTART_CHECKLIST.md
+- FASE_2_READY_FOR_EXECUTION.md
+- FASE_2_SEMANAS_2_3_4_TRACKING.md
+- FINALIZACAO_AUDITORIA_6FEB_PRONTO_PUSH.md
+- FRAMEWORK_CONTINUIDADE_PROCEDIMENTOS.md
+- GOVERNANCE_POLITICA_OPERACOES.md
+- INDICE_DEVOPS_VILLA_CANABRAVA.md
+- INDICE_EXECUTIVO_ANALISE_DETALHADA.md
+- INSTRUCOES_REVALIDACAO_SEMANA_2.md
+- MANIFESTO_METODOLOGIA_CONTINUIDADE.md
+- PARECER_AUDITORIA_FINAL_NAO_APROVADO_6FEB.md
+- PLANO_ESTRATEGICO_CONSOLIDADO_S2_6FEB.md
+- PLANO_EXECUCAO_IMEDIATA_AGENTE_OPERACOES.md
+- PLANO_EXECUCAO_SEMANA_2_DETALHADO.md
+- PROMPT_EXECUCAO_FASE_1.md
+- PROMPT_EXECUCAO_FASE_2.md
+- PROMPT_EXECUCAO_SEMANAS_2_3_4_FASE_2.md
+- PROMPT_VALIDACAO_FASE_0.md
+- PROMPT_VALIDACAO_FASE_1.md
+- PROMPT_VALIDACAO_FASE_2.md
+- README.md
+- RELATORIO_AUTOPSIA_DEVOPS_VILLA_CANABRAVA.md
+- RELATORIO_CORRECOES_APLICADAS.md
+- RELATORIO_CORRECOES_SEMANA_1_FASE_2.md
+- RELATORIO_ESTRUTURACAO_SEMANAS_2_3_4.md
+- RELATORIO_EXECUCAO_FASE_1.md
+- RELATORIO_EXECUCAO_RODADA_6FEB_PARA_NOVA_VISTORIA.md
+- REMEDIACAO_FINAL_AUDITORIA_6FEB_RESUMO.md
+- REMEDIATION_APLICADA_FASE_1.md
+- REMEDIATION_SEMANA_2_FASE_2.md
+- requirements-gis.txt
+- RESPOSTA_AUDITOR_FINAL_6FEB.md
+- REVISAO_CRITICA_ANALISE.md
+- ROADMAP_CAPACIDADES_S2_S4.md
+- RUNBOOK_DEVOPS_VILLA_CANABRAVA.md
+- S2_KICKOFF_CHECKLIST_FINAL.md
+- SEMANA_1_FASE_2_RESUMO_FINAL.md
+- SEMANA_2_COMECA_SEGUNDA.md
+- SEMANA_2_KICKOFF_READINESS.md
+- STATUS_CRITICO_6FEB_CORRECOES_APLICADAS.md
+- SUMARIO_EXECUTIVO_DEVOPS_VILLA_CANABRAVA.md
+- TRANSICAO_ANALYSIS_EXECUTION_6FEB.md
+- VALIDACAO_DOCKER_SUPABASE_PASSO_A_PASSO.md
+- VALIDACAO_SEMANA_1_FASE_2.md
+- VALIDACAO_SUPABASE_LOCAL_6FEB.md
+- vercel.json
+- .browser_screenshots
+- archives/2026-02-07/venv/archives/2026-02-07/venv/.venv
+- .vercel
+- .vscode
+- assets
+- docs
+- frontend
+- pasra_site
+- plans
+- project_analysis
+- reports
+- supabase
+- tools
+- user_input_files
+
+Pasta BIBLIOTECA_git_backup:
+- (conteudo nao listado)
+
+Pasta db:
+- migrations
+
+Pasta docs:
+- ENV.md
+
+Pasta Documentacao Auxiliar  Mundo Virtual Villa:
+- 00_DOCUMENTACAO_OFICIAL_V2
+- agents
+- APLICATIVO-BIBLIOTECA-RC
+
+Pasta exports:
+- geojson
+
+Pasta GEMINI.md:
+- GEMINI.md
+
+Pasta KLM localidade:
+- (conteudo nao listado)
+
+Pasta plans:
+- P0_CHECKLIST_VALIDACAO.md
+- P0_VALIDATION_PLAN.md
+- SPRINT_2_PLANO_ORQUESTRADOR_FINAL.md
+- SPRINT_3_COMMUNICATION_LOG.md
+- SPRINT_3_PLANO_EXECUTIVO_FEB6_10.md
+- SPRINT_3_RASTREABILIDADE_MASTER.md
+- SPRINT_3_RISK_REGISTER.md
+
+Pasta reports:
+- 00_env_audit.md
+- 01_schema_contract.md
+- 02_import_idempotency.md
+- 03_spatial_quality.md
+- 04_metrics_vs_docs.md
+- 05_export.md
+- 99_fix_plan.md
+- import_report.csv
+- skipped_report.csv
+
+Pasta scripts:
+- export_geojson_from_postgis.py
+- import_kml_to_postgis.py
+- validate_db.py
+
+Pasta archives/2026-02-07/shadow/archives/2026-02-07/shadow/shadow_deployment_results:
+- EXECUCAO_COMPLETA_20260206_170951.json
+- EXECUCAO_COMPLETA_20260206_171320.json
+- EXECUCAO_COMPLETA_20260206_171627.json
+- EXECUCAO_COMPLETA_20260206_171653.json
+- EXECUCAO_COMPLETA_20260206_171730.json
+- EXECUCAO_COMPLETA_20260206_171739.json
+- EXECUCAO_COMPLETA_20260206_171927.json
+- EXECUCAO_COMPLETA_20260206_173353.json
+- EXECUCAO_COMPLETA_20260206_173539.json
+- EXECUCAO_COMPLETA_20260206_175624.json
+- EXECUCAO_COMPLETA_20260206_182708.json
+- EXECUCAO_COMPLETA_20260206_183129.json
+- EXECUCAO_COMPLETA_20260206_183257.json
+- EXECUCAO_FINAL_20260206_184309.json
+- executor_20260206_170951.log
+- executor_20260206_171320.log
+- executor_20260206_171626.log
+- executor_20260206_171653.log
+- executor_20260206_171730.log
+- executor_20260206_171739.log
+- executor_20260206_171927.log
+- executor_20260206_173353.log
+- executor_20260206_173539.log
+- executor_20260206_175624.log
+- executor_20260206_182708.log
+- executor_20260206_183129.log
+- executor_20260206_183257.log
+- executor_20260206_183353.log
+- executor_final_20260206_183848.log
+- executor_final_20260206_184302.log
+- FASE1_20260206_184308.json
+- FASE1_ENVIRONMENT_SETUP_report_20260206_170951.md
+- FASE1_ENVIRONMENT_SETUP_report_20260206_171320.md
+- FASE1_ENVIRONMENT_SETUP_report_20260206_171627.md
+- FASE1_ENVIRONMENT_SETUP_report_20260206_171653.md
+- FASE1_ENVIRONMENT_SETUP_report_20260206_171730.md
+- FASE1_ENVIRONMENT_SETUP_report_20260206_171739.md
+- FASE1_ENVIRONMENT_SETUP_report_20260206_171927.md
+- FASE1_ENVIRONMENT_SETUP_report_20260206_173353.md
+- FASE1_ENVIRONMENT_SETUP_report_20260206_173539.md
+- FASE1_ENVIRONMENT_SETUP_report_20260206_175624.md
+- FASE1_ENVIRONMENT_SETUP_report_20260206_182708.md
+- FASE1_ENVIRONMENT_SETUP_report_20260206_183129.md
+- FASE1_ENVIRONMENT_SETUP_report_20260206_183257.md
+- FASE10_PRODUCTION_PLANNING_20260206_184309.json
+- FASE2_20260206_184309.json
+- FASE3_20260206_184309.json
+- FASE4_5_OPT1_MIGRATION_20260206_184309.json
+- FASE6_8_ROLLBACK_20260206_184309.json
+- FASE9_SIGN_OFF_20260206_184309.json
+
+Pasta Villa_Canabrava_Digital_World:
+- archives/2026-02-07/venv/archives/2026-02-07/venv/.venv
+- data
+- scripts
+
+## 3) Relatorio atual do trabalho em andamento
+
+### Infraestrutura e banco
+- Container canonico: villa_canabrava_postgis ativo na porta 15433.
+- Postgres 15.4 e PostGIS 3.3 ativos.
+- Schema principal: villa_canabrava.
+- Migracao 0002 de idempotencia aplicada.
+
+### Importacao e validacao
+- Importador atualizado para KMZ, idempotencia e relatorios.
+- Relatorios gerados: reports/import_report.csv e reports/skipped_report.csv.
+- Validacao atual PASS em validation_report.md.
+- Relatorio espacial detalhado: reports/03_spatial_quality.md.
+
+### Exportacao
+- Exportacao GeoJSON por camada concluida.
+- Relatorio de exportacao: reports/05_export.md.
+
+### Divergencias abertas
+- Total de features 665 indica importacoes acumuladas anteriores.
+- EXPLAIN mostrou Seq Scan em queries espaciais do relatorio de qualidade.
+
+### Proximos passos sugeridos
+1) Rodar importacao completa com --replace-existing para eliminar duplicacao.
+2) Revalidar e atualizar validation_report.md.
+3) Ajustar queries de validacao para favorecer uso de indice GiST.
+4) Revisar skipped_report.csv e tratar geometrias invalidas.
+5) Se necessario, limpar dados antigos antes do import final.
+
+
+
+

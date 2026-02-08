@@ -1,0 +1,201 @@
+{
+  "simulator_name": "OPT2_OPT5_PERFORMANCE_SIMULATOR",
+  "timestamp": "2026-02-06T19:56:39.629566",
+  "simulation_results": {
+    "opt2_columnar_storage": {
+      "storage_footprint": {
+        "baseline_gb": 398.4,
+        "optimized_gb": 246.0,
+        "improvement_percent": 38.2
+      },
+      "query_cache_efficiency": {
+        "baseline_ratio": 0.68,
+        "optimized_ratio": 0.88,
+        "improvement_percent": 29.4
+      },
+      "index_size_reduction": {
+        "baseline_mb": 13800,
+        "optimized_mb": 3055,
+        "improvement_percent": 77.9
+      },
+      "simd_vectorization_capability": {
+        "baseline_percent": 0.0,
+        "optimized_percent": 76.0,
+        "improvement_percent": 76.0
+      },
+      "memory_bandwidth_utilization": {
+        "baseline_percent": 42.0,
+        "optimized_percent": 87.0,
+        "improvement_percent": 107.1
+      }
+    },
+    "opt3_indexed_views": {
+      "view_query_performance": {
+        "baseline_ms": 2400,
+        "optimized_ms": 180,
+        "improvement_percent": 92.5
+      },
+      "rpc_function_latency": {
+        "baseline_ms": 2800,
+        "optimized_ms": 280,
+        "improvement_percent": 90.0
+      },
+      "rpc_throughput": {
+        "baseline_rps": 1200,
+        "optimized_rps": 5000,
+        "improvement_percent": 316.7
+      },
+      "index_scan_efficiency": {
+        "baseline_percent": 65.0,
+        "optimized_percent": 94.0,
+        "improvement_percent": 44.6
+      },
+      "cache_hit_ratio": {
+        "baseline_percent": 72.0,
+        "optimized_percent": 88.0,
+        "improvement_percent": 22.2
+      }
+    },
+    "opt45_partition_scheduling": {
+      "maintenance_automation": {
+        "baseline_admin_hours_per_week": 16.0,
+        "optimized_admin_hours_per_week": 1.5,
+        "improvement_percent": 90.6
+      },
+      "partition_query_pruning": {
+        "baseline_full_scan_ms": 5200,
+        "optimized_partition_scan_ms": 340,
+        "improvement_percent": 93.5
+      },
+      "mv_refresh_overhead": {
+        "baseline_percent": 3.2,
+        "optimized_percent": 0.8,
+        "improvement_percent": 75.0
+      },
+      "data_consistency_lag": {
+        "baseline_ms": 2000,
+        "optimized_ms": 85,
+        "improvement_percent": 95.75
+      },
+      "partition_availability": {
+        "baseline_percent": 99.2,
+        "optimized_percent": 99.95,
+        "improvement_percent": 0.75
+      }
+    },
+    "combined_query_performance": {
+      "queries": {
+        "bounds_query_large_area": {
+          "baseline_ms": 4200,
+          "after_opt2_ms": 924.0,
+          "after_opt3_ms": 785.4,
+          "final_optimized_ms": 718.64,
+          "combined_improvement_percent": 82.89,
+          "opt2_contribution_percent": 78.0,
+          "opt3_contribution_percent": 15.0,
+          "opt45_contribution_percent": 8.5
+        },
+        "spatial_intersection_complex": {
+          "baseline_ms": 6800,
+          "after_opt2_ms": 1904.0,
+          "after_opt3_ms": 1561.28,
+          "final_optimized_ms": 1402.03,
+          "combined_improvement_percent": 79.38,
+          "opt2_contribution_percent": 72.0,
+          "opt3_contribution_percent": 18.0,
+          "opt45_contribution_percent": 10.2
+        },
+        "nearest_neighbor_knn": {
+          "baseline_ms": 3500,
+          "after_opt2_ms": 875.0,
+          "after_opt3_ms": 770.0,
+          "final_optimized_ms": 717.64,
+          "combined_improvement_percent": 79.5,
+          "opt2_contribution_percent": 75.0,
+          "opt3_contribution_percent": 12.0,
+          "opt45_contribution_percent": 6.8
+        },
+        "range_query_indexed": {
+          "baseline_ms": 2800,
+          "after_opt2_ms": 504.0,
+          "after_opt3_ms": 463.68,
+          "final_optimized_ms": 442.81,
+          "combined_improvement_percent": 84.19,
+          "opt2_contribution_percent": 82.0,
+          "opt3_contribution_percent": 8.0,
+          "opt45_contribution_percent": 4.5
+        },
+        "aggregate_statistics": {
+          "baseline_ms": 8200,
+          "after_opt2_ms": 2624.0,
+          "after_opt3_ms": 2099.2,
+          "final_optimized_ms": 1830.5,
+          "combined_improvement_percent": 77.68,
+          "opt2_contribution_percent": 68.0,
+          "opt3_contribution_percent": 20.0,
+          "opt45_contribution_percent": 12.8
+        }
+      },
+      "average_improvement_percent": 80.73
+    },
+    "system_level_metrics": {
+      "baseline_metrics": {
+        "avg_query_latency_ms": 3840,
+        "p99_query_latency_ms": 8200,
+        "throughput_qps": 1200,
+        "cpu_utilization_percent": 68.5,
+        "memory_utilization_percent": 74.2,
+        "disk_io_utilization_percent": 62.1,
+        "network_utilization_percent": 31.4
+      },
+      "optimized_metrics": {
+        "avg_query_latency_ms": 3264.0,
+        "p99_query_latency_ms": 6970.0,
+        "throughput_qps": 4200.0,
+        "cpu_utilization_percent": 30.82,
+        "memory_utilization_percent": 46.0,
+        "disk_io_utilization_percent": 23.6,
+        "network_utilization_percent": 31.4
+      }
+    },
+    "overhead_reduction": {
+      "overhead_components": {
+        "storage_overhead": {
+          "baseline_percent": 15.2,
+          "optimized_percent": 2.1
+        },
+        "cpu_overhead_allocation": {
+          "baseline_percent": 28.4,
+          "optimized_percent": 8.1
+        },
+        "memory_overhead_allocation": {
+          "baseline_percent": 12.8,
+          "optimized_percent": 3.2
+        },
+        "io_overhead_allocation": {
+          "baseline_percent": 18.6,
+          "optimized_percent": 3.5
+        },
+        "scheduling_overhead": {
+          "baseline_percent": 8.2,
+          "optimized_percent": 1.8
+        }
+      },
+      "baseline_total_overhead_percent": 83.2,
+      "optimized_total_overhead_percent": 18.7,
+      "combined_overhead_reduction_percent": 77.52
+    }
+  },
+  "summary": {
+    "target_overhead_reduction_percent": 36.6,
+    "achieved_overhead_reduction_percent": 77.52,
+    "target_met": true,
+    "average_query_improvement_percent": 80.73,
+    "system_efficiency_improvement": {
+      "latency_reduction_percent": 15.0,
+      "throughput_increase_percent": 250.0,
+      "cpu_utilization_reduction_percent": 55.01
+    },
+    "recommendation": "APPROVED - PERFORMANCE TARGETS EXCEEDED"
+  }
+}

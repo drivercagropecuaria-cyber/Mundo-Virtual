@@ -1,0 +1,80 @@
+[2026-02-06 16:57:14] [INFO] ============================================================================
+[2026-02-06 16:57:14] [INFO] SPRINT 3 - STAGE 2: OPT1 DRY-RUN VALIDATION
+[2026-02-06 16:57:14] [INFO] ============================================================================
+[2026-02-06 16:57:14] [INFO] Iniciado em: 2026-02-06 16:57:14 UTC
+[2026-02-06 16:57:14] [INFO] Database: villa_canabrava @ localhost:5432
+[2026-02-06 16:57:14] [INFO] User: postgres
+[2026-02-06 16:57:14] [INFO] ============================================================================
+[2026-02-06 16:57:14] [INFO] ================================================
+[2026-02-06 16:57:14] [INFO] STAGE 2: Valida√ß√£o Pr√©-Flight
+[2026-02-06 16:57:14] [INFO] ================================================
+[2026-02-06 16:57:14] [INFO] 
+[2026-02-06 16:57:14] [INFO] 1. Testando conectividade PostgreSQL...
+[2026-02-06 16:57:14] [ERROR]    ‚ùå Erro: O termo 'psql' n„o È reconhecido como nome de cmdlet, funÁ„o, arquivo de script ou programa oper·vel. Verifique a grafia do nome ou, se um caminho tiver sido incluÌdo, veja se o caminho est· correto e tente novamente.
+[2026-02-06 16:57:14] [INFO] 
+[2026-02-06 16:57:14] [INFO] 2. Verificando tabela particionada...
+[2026-02-06 16:57:14] [ERROR] Error executing query: O termo 'psql' n„o È reconhecido como nome de cmdlet, funÁ„o, arquivo de script ou programa oper·vel. Verifique a grafia do nome ou, se um caminho tiver sido incluÌdo, veja se o caminho est· correto e tente novamente.
+[2026-02-06 16:57:14] [ERROR]    ‚ùå Tabela n√£o encontrada
+[2026-02-06 16:57:14] [INFO] 
+[2026-02-06 16:57:14] [INFO] 3. Verificando parti√ß√µes existentes...
+[2026-02-06 16:57:14] [ERROR] Error executing query: O termo 'psql' n„o È reconhecido como nome de cmdlet, funÁ„o, arquivo de script ou programa oper·vel. Verifique a grafia do nome ou, se um caminho tiver sido incluÌdo, veja se o caminho est· correto e tente novamente.
+[2026-02-06 16:57:14] [SUCCESS]    ‚úÖ Parti√ß√µes encontradas:
+[2026-02-06 16:57:14] [INFO]    System.Collections.Hashtable.output
+[2026-02-06 16:57:14] [INFO] 
+[2026-02-06 16:57:14] [INFO] ================================================
+[2026-02-06 16:57:14] [INFO] STAGE 2: Execu√ß√£o da Migration OPT1
+[2026-02-06 16:57:14] [INFO] ================================================
+[2026-02-06 16:57:14] [INFO] 
+[2026-02-06 16:57:14] [INFO] 4. Executando migration OPT1...
+[2026-02-06 16:57:14] [INFO]    Arquivo: BIBLIOTECA\supabase\migrations\1770500100_auto_partition_creation_2029_plus.sql
+[2026-02-06 16:57:14] [ERROR]    ‚ùå Erro: O termo 'psql' n„o È reconhecido como nome de cmdlet, funÁ„o, arquivo de script ou programa oper·vel. Verifique a grafia do nome ou, se um caminho tiver sido incluÌdo, veja se o caminho est· correto e tente novamente.
+[2026-02-06 16:57:14] [INFO] 
+[2026-02-06 16:57:14] [INFO] 5. Verificando trigger criado...
+[2026-02-06 16:57:14] [ERROR] Error executing query: O termo 'psql' n„o È reconhecido como nome de cmdlet, funÁ„o, arquivo de script ou programa oper·vel. Verifique a grafia do nome ou, se um caminho tiver sido incluÌdo, veja se o caminho est· correto e tente novamente.
+[2026-02-06 16:57:14] [ERROR]    ‚ùå Trigger n√£o encontrado
+[2026-02-06 16:57:14] [ERROR]    Resultado: System.Collections.Hashtable.output
+[2026-02-06 16:57:14] [INFO] 
+[2026-02-06 16:57:14] [INFO] 6. Verificando fun√ß√µes criadas...
+[2026-02-06 16:57:15] [ERROR] Error executing query: O termo 'psql' n„o È reconhecido como nome de cmdlet, funÁ„o, arquivo de script ou programa oper·vel. Verifique a grafia do nome ou, se um caminho tiver sido incluÌdo, veja se o caminho est· correto e tente novamente.
+[2026-02-06 16:57:15] [ERROR]    ‚ùå Fun√ß√£o create_missing_year_partitions n√£o encontrada
+[2026-02-06 16:57:15] [ERROR] Error executing query: O termo 'psql' n„o È reconhecido como nome de cmdlet, funÁ„o, arquivo de script ou programa oper·vel. Verifique a grafia do nome ou, se um caminho tiver sido incluÌdo, veja se o caminho est· correto e tente novamente.
+[2026-02-06 16:57:15] [ERROR]    ‚ùå Fun√ß√£o auto_create_partition_for_year n√£o encontrada
+[2026-02-06 16:57:15] [ERROR] Error executing query: O termo 'psql' n„o È reconhecido como nome de cmdlet, funÁ„o, arquivo de script ou programa oper·vel. Verifique a grafia do nome ou, se um caminho tiver sido incluÌdo, veja se o caminho est· correto e tente novamente.
+[2026-02-06 16:57:15] [ERROR]    ‚ùå Fun√ß√£o scheduled_partition_maintenance n√£o encontrada
+[2026-02-06 16:57:15] [ERROR] Error executing query: O termo 'psql' n„o È reconhecido como nome de cmdlet, funÁ„o, arquivo de script ou programa oper·vel. Verifique a grafia do nome ou, se um caminho tiver sido incluÌdo, veja se o caminho est· correto e tente novamente.
+[2026-02-06 16:57:15] [ERROR]    ‚ùå Fun√ß√£o maintain_partitions n√£o encontrada
+[2026-02-06 16:57:15] [INFO] 
+[2026-02-06 16:57:15] [INFO] 7. Testando cria√ß√£o de parti√ß√µes...
+[2026-02-06 16:57:15] [ERROR] Error executing query: O termo 'psql' n„o È reconhecido como nome de cmdlet, funÁ„o, arquivo de script ou programa oper·vel. Verifique a grafia do nome ou, se um caminho tiver sido incluÌdo, veja se o caminho est· correto e tente novamente.
+[2026-02-06 16:57:15] [ERROR]    ‚ùå Erro ao testar cria√ß√£o de parti√ß√µes
+[2026-02-06 16:57:15] [ERROR]    Erro: O termo 'psql' n„o È reconhecido como nome de cmdlet, funÁ„o, arquivo de script ou programa oper·vel. Verifique a grafia do nome ou, se um caminho tiver sido incluÌdo, veja se o caminho est· correto e tente novamente.
+[2026-02-06 16:57:15] [INFO] 
+[2026-02-06 16:57:15] [INFO] 8. Contando parti√ß√µes criadas...
+[2026-02-06 16:57:15] [ERROR] Error executing query: O termo 'psql' n„o È reconhecido como nome de cmdlet, funÁ„o, arquivo de script ou programa oper·vel. Verifique a grafia do nome ou, se um caminho tiver sido incluÌdo, veja se o caminho est· correto e tente novamente.
+[2026-02-06 16:57:15] [ERROR]    ‚ùå Erro ao contar parti√ß√µes
+[2026-02-06 16:57:15] [INFO] 
+[2026-02-06 16:57:15] [INFO] 9. Verificando tabela de manuten√ß√£o...
+[2026-02-06 16:57:15] [ERROR] Error executing query: O termo 'psql' n„o È reconhecido como nome de cmdlet, funÁ„o, arquivo de script ou programa oper·vel. Verifique a grafia do nome ou, se um caminho tiver sido incluÌdo, veja se o caminho est· correto e tente novamente.
+[2026-02-06 16:57:15] [ERROR]    ‚ùå Tabela partition_maintenance_log n√£o encontrada
+[2026-02-06 16:57:15] [INFO] 
+[2026-02-06 16:57:15] [INFO] ================================================
+[2026-02-06 16:57:15] [INFO] STAGE 2: Relat√≥rio de M√©tricas
+[2026-02-06 16:57:15] [INFO] ================================================
+[2026-02-06 16:57:15] [INFO] 
+[2026-02-06 16:57:15] [INFO] Testes Executados: 0
+[2026-02-06 16:57:15] [SUCCESS] Sucessos: 0 ‚úÖ
+[2026-02-06 16:57:15] [INFO] Falhas: 0 ‚ùå
+[2026-02-06 16:57:15] [INFO] 
+[2026-02-06 16:57:15] [INFO] M√©tricas salvas em: METRICS_OPT1_STAGE2_20260206_165714.json
+[2026-02-06 16:57:15] [INFO] 
+[2026-02-06 16:57:15] [INFO] ================================================
+[2026-02-06 16:57:15] [INFO] STAGE 2: RESULTADO FINAL
+[2026-02-06 16:57:15] [INFO] ================================================
+[2026-02-06 16:57:15] [ERROR] STATUS: ‚ùå FAIL
+[2026-02-06 16:57:15] [INFO] 
+[2026-02-06 16:57:15] [ERROR] A√ß√£o Requerida: Revisar erros acima
+[2026-02-06 16:57:15] [ERROR] Escala√ß√£o L1/L2 necess√°ria
+[2026-02-06 16:57:15] [INFO] 
+[2026-02-06 16:57:15] [INFO] Log completo: STAGE2_OPT1_DRYRUN_LOG_20260206_165714.txt
+[2026-02-06 16:57:15] [INFO] M√©tricas: METRICS_OPT1_STAGE2_20260206_165714.json
+[2026-02-06 16:57:15] [INFO] ================================================

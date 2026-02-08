@@ -1,0 +1,14 @@
+﻿# Ignorar arquivos grandes
+*.geojson
+*.kml
+*.kmz
+*.zip
+
+# Ignorar dados sensíveis
+*.env
+config.json
+
+# Ignorar cache Python
+__pycache__/
+*.pyc
+.DS_Store

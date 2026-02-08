@@ -1,0 +1,10 @@
+2026-02-06 18:38:48,721 [INFO] [START] SPRINT 3 SHADOW DEPLOYMENT EXECUTOR (FINAL)
+2026-02-06 18:38:48,722 [INFO] Timestamp: 2026-02-06T18:38:48.722955
+2026-02-06 18:38:48,722 [INFO] ================================================================================
+2026-02-06 18:38:48,722 [INFO] FASE 1: ENVIRONMENT CHECK
+2026-02-06 18:38:48,722 [INFO] ================================================================================
+2026-02-06 18:38:48,722 [INFO] Executing: docker --version
+2026-02-06 18:38:48,775 [INFO] Success
+2026-02-06 18:38:48,775 [INFO] Executing: "C:\Program Files\PostgreSQL\15\bin\psql.exe" --version
+2026-02-06 18:38:48,800 [INFO] Success
+2026-02-06 18:38:48,800 [INFO] Executing: "C:\Program Files\PostgreSQL\15\bin\psql.exe" -h localhost -U postgres -d postgres -c "SELECT VERSION();"

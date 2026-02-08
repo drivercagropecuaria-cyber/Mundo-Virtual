@@ -1,0 +1,48 @@
+2026-02-06 18:43:02,016 [INFO] [START] SPRINT 3 SHADOW DEPLOYMENT EXECUTOR (FINAL)
+2026-02-06 18:43:02,017 [INFO] Timestamp: 2026-02-06T18:43:02.017477
+2026-02-06 18:43:02,017 [INFO] ================================================================================
+2026-02-06 18:43:02,017 [INFO] FASE 1: ENVIRONMENT CHECK
+2026-02-06 18:43:02,017 [INFO] ================================================================================
+2026-02-06 18:43:02,017 [INFO] Executing: docker --version
+2026-02-06 18:43:02,085 [INFO] Success
+2026-02-06 18:43:02,085 [INFO] Executing: "C:\Program Files\PostgreSQL\15\bin\psql.exe" --version
+2026-02-06 18:43:02,122 [INFO] Success
+2026-02-06 18:43:02,123 [INFO] Executing: "C:\Program Files\PostgreSQL\15\bin\psql.exe" -h localhost -U postgres -d postgres -c "SELECT VERSION();"
+2026-02-06 18:43:08,935 [WARNING] Return code: 2
+2026-02-06 18:43:08,937 [INFO] Saved: shadow_deployment_results\FASE1_20260206_184308.json
+2026-02-06 18:43:08,937 [INFO] ================================================================================
+2026-02-06 18:43:08,937 [INFO] FASE 2: CREATE SHADOW DATABASE
+2026-02-06 18:43:08,937 [INFO] ================================================================================
+2026-02-06 18:43:08,937 [INFO] Executing: "C:\Program Files\PostgreSQL\15\bin\psql.exe" -h localhost -U postgres -d postgres -c "CREATE DATABASE villa_canabrava_shadow TEMPLATE template0;"
+2026-02-06 18:43:09,009 [WARNING] Return code: 2
+2026-02-06 18:43:09,010 [ERROR] Failed to create database: psql: error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+2026-02-06 18:43:09,010 [INFO] Saved: shadow_deployment_results\FASE2_20260206_184309.json
+2026-02-06 18:43:09,012 [INFO] ================================================================================
+2026-02-06 18:43:09,012 [INFO] FASE 3: DATA VALIDATION
+2026-02-06 18:43:09,012 [INFO] ================================================================================
+2026-02-06 18:43:09,012 [INFO] Executing: "C:\Program Files\PostgreSQL\15\bin\psql.exe" -h localhost -U postgres -d villa_canabrava_shadow -c "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='public';"
+2026-02-06 18:43:09,060 [WARNING] Return code: 2
+2026-02-06 18:43:09,061 [INFO] Saved: shadow_deployment_results\FASE3_20260206_184309.json
+2026-02-06 18:43:09,061 [INFO] ================================================================================
+2026-02-06 18:43:09,062 [INFO] FASE 4-5: OPT1 MIGRATION
+2026-02-06 18:43:09,062 [INFO] ================================================================================
+2026-02-06 18:43:09,062 [INFO] Saved: shadow_deployment_results\FASE4_5_OPT1_MIGRATION_20260206_184309.json
+2026-02-06 18:43:09,062 [INFO] ================================================================================
+2026-02-06 18:43:09,062 [INFO] FASE 6-8: ROLLBACK VALIDATION
+2026-02-06 18:43:09,062 [INFO] ================================================================================
+2026-02-06 18:43:09,063 [INFO] Saved: shadow_deployment_results\FASE6_8_ROLLBACK_20260206_184309.json
+2026-02-06 18:43:09,063 [INFO] ================================================================================
+2026-02-06 18:43:09,063 [INFO] FASE 9: SIGN-OFF & APPROVAL
+2026-02-06 18:43:09,063 [INFO] ================================================================================
+2026-02-06 18:43:09,064 [INFO] Saved: shadow_deployment_results\FASE9_SIGN_OFF_20260206_184309.json
+2026-02-06 18:43:09,064 [INFO] ================================================================================
+2026-02-06 18:43:09,064 [INFO] FASE 10: PRODUCTION ROLLOUT PLANNING
+2026-02-06 18:43:09,064 [INFO] ================================================================================
+2026-02-06 18:43:09,065 [INFO] Saved: shadow_deployment_results\FASE10_PRODUCTION_PLANNING_20260206_184309.json
+2026-02-06 18:43:09,066 [INFO] 
+================================================================================
+2026-02-06 18:43:09,066 [INFO] [COMPLETE] EXECUCAO FINALIZADA
+2026-02-06 18:43:09,066 [INFO] Duration: 0.12 minutes
+2026-02-06 18:43:09,066 [INFO] Summary: shadow_deployment_results\EXECUCAO_FINAL_20260206_184309.json
+2026-02-06 18:43:09,066 [INFO] ================================================================================

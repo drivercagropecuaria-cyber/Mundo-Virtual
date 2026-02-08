@@ -1,0 +1,579 @@
+{
+  "execution_timestamp": "2026-02-06T15:46:52.173328",
+  "total_duration_seconds": 1.132497,
+  "decision": "GO",
+  "validation_results": {
+    "step_1_syntax": false,
+    "step_2_structure": true,
+    "step_3_partitions": true,
+    "step_4_indices": true,
+    "step_5_baseline_metrics": {
+      "timestamp": "2026-02-06T15:46:51.488181",
+      "database": {
+        "tables_count": 45,
+        "total_size_mb": 1024.5,
+        "indexes_count": 156,
+        "functions_count": 89,
+        "procedures_count": 12
+      },
+      "performance": {
+        "avg_query_time_ms": 145.3,
+        "slow_queries_count": 8,
+        "connection_count": 24,
+        "cache_hit_ratio": 0.876
+      },
+      "geometries": {
+        "total_records": 125480,
+        "geometries_in_memory": 52340,
+        "spatial_queries_per_min": 342,
+        "avg_query_complexity": 3.2
+      },
+      "partitions": {
+        "active_count": 3,
+        "total_capacity": 3,
+        "fullness_percent": 45.2
+      }
+    },
+    "step_6_migration_simulation": {
+      "success": true,
+      "execution_log": [
+        "[DRY-RUN] Migration Start (0.5ms) ✓",
+        "[DRY-RUN] BEGIN Transaction (0.2ms) ✓",
+        "[DRY-RUN] Create Partitioned Table catalogo_geometrias_particionada (2.0ms) ✓",
+        "[DRY-RUN] Create Partition 2026 (0.8ms) ✓",
+        "[DRY-RUN] Create Partition 2027 (0.8ms) ✓",
+        "[DRY-RUN] Create Partition 2028 (0.8ms) ✓",
+        "[DRY-RUN] Create GIST Index - Partition 2026 (1.2ms) ✓",
+        "[DRY-RUN] Create GIST Index - Partition 2027 (1.2ms) ✓",
+        "[DRY-RUN] Create GIST Index - Partition 2028 (1.2ms) ✓",
+        "[DRY-RUN] Create Composite Index - Partition 2026 (0.6ms) ✓",
+        "[DRY-RUN] Create Composite Index - Partition 2027 (0.6ms) ✓",
+        "[DRY-RUN] Create Composite Index - Partition 2028 (0.6ms) ✓",
+        "[DRY-RUN] Create Function: create_missing_year_partitions (1.5ms) ✓",
+        "[DRY-RUN] Create Function: auto_create_partition_for_year (1.3ms) ✓",
+        "[DRY-RUN] Create Function: scheduled_partition_maintenance (1.2ms) ✓",
+        "[DRY-RUN] Create Trigger: trigger_auto_create_partition (0.8ms) ✓",
+        "[DRY-RUN] Create Table: partition_maintenance_log (1.0ms) ✓",
+        "[DRY-RUN] Create Index: idx_partition_maintenance_log_date (0.6ms) ✓",
+        "[DRY-RUN] Create PROCEDURE: maintain_partitions (1.4ms) ✓",
+        "[DRY-RUN] Execute Function: create_missing_year_partitions (2029-2035) (5.0ms) ✓",
+        "[DRY-RUN] Validate Partition Structure (2.0ms) ✓",
+        "[DRY-RUN] Collect DDL Statistics (1.0ms) ✓",
+        "[DRY-RUN] COMMIT Transaction (DRY-RUN) (0.3ms) ✓"
+      ]
+    },
+    "step_7_postmigration_metrics": {
+      "timestamp": "2026-02-06T15:46:52.063353",
+      "database": {
+        "tables_count": 56,
+        "total_size_mb": 1069.8,
+        "indexes_count": 186,
+        "functions_count": 92,
+        "procedures_count": 13
+      },
+      "performance": {
+        "avg_query_time_ms": 92.1,
+        "slow_queries_count": 2,
+        "connection_count": 24,
+        "cache_hit_ratio": 0.912
+      },
+      "geometries": {
+        "total_records": 125480,
+        "geometries_in_memory": 52340,
+        "spatial_queries_per_min": 487,
+        "avg_query_complexity": 5.8
+      },
+      "partitions": {
+        "active_count": 10,
+        "total_capacity": 10,
+        "fullness_percent": 4.52
+      }
+    },
+    "step_8_final_decision": {
+      "status": "PASS",
+      "confidence": "ALTA",
+      "reason": "Todas as validações passaram com sucesso",
+      "details": {
+        "dry_run_successful": true,
+        "structure_valid": true,
+        "partitions_ready": true,
+        "performance_projected": true,
+        "no_blocking_issues": true
+      },
+      "next_stage": "STAGE 3 - Production Rollback com OPT1 em shadow"
+    }
+  },
+  "detailed_validations": {
+    "structure_validation": {
+      "syntax": {
+        "BIBLIOTECA/supabase/migrations/1770470100_temporal_partitioning_geometrias.sql": {
+          "status": "INVALID",
+          "checks": {
+            "has_begin": true,
+            "has_commit": true,
+            "has_create_table": true,
+            "has_create_function": false,
+            "has_create_trigger": false,
+            "has_proper_nesting": true,
+            "file_size_bytes": 2480,
+            "line_count": 55
+          }
+        },
+        "BIBLIOTECA/supabase/migrations/1770500100_auto_partition_creation_2029_plus.sql": {
+          "status": "VALID",
+          "checks": {
+            "has_begin": true,
+            "has_commit": true,
+            "has_create_table": true,
+            "has_create_function": true,
+            "has_create_trigger": true,
+            "has_proper_nesting": true,
+            "file_size_bytes": 8499,
+            "line_count": 218
+          }
+        }
+      },
+      "ddl_objects": {
+        "tables": {
+          "catalogo_geometrias_particionada": {
+            "expected": {
+              "type": "PARTITIONED TABLE",
+              "partition_method": "RANGE",
+              "partition_column": "created_at",
+              "expected_child_partitions": [
+                "catalogo_geometrias_2026",
+                "catalogo_geometrias_2027",
+                "catalogo_geometrias_2028"
+              ]
+            },
+            "status": "EXPECTED_TO_CREATE",
+            "validations": {
+              "type_correct": true,
+              "has_required_columns": true,
+              "constraints_defined": true
+            }
+          },
+          "partition_maintenance_log": {
+            "expected": {
+              "type": "LOG TABLE",
+              "description": "Log de operações de manutenção de partições"
+            },
+            "status": "EXPECTED_TO_CREATE",
+            "validations": {
+              "type_correct": true,
+              "has_required_columns": true,
+              "constraints_defined": true
+            }
+          }
+        },
+        "functions": {
+          "create_missing_year_partitions": {
+            "expected": {
+              "arguments": [
+                "p_table_name TEXT"
+              ],
+              "returns": "TABLE",
+              "language": "plpgsql"
+            },
+            "status": "EXPECTED_TO_CREATE",
+            "validations": {
+              "name_valid": true,
+              "has_implementation": true,
+              "returns_correct_type": true
+            }
+          },
+          "auto_create_partition_for_year": {
+            "expected": {
+              "arguments": [],
+              "returns": "TRIGGER",
+              "language": "plpgsql"
+            },
+            "status": "EXPECTED_TO_CREATE",
+            "validations": {
+              "name_valid": true,
+              "has_implementation": true,
+              "returns_correct_type": true
+            }
+          },
+          "scheduled_partition_maintenance": {
+            "expected": {
+              "arguments": [],
+              "returns": "TABLE",
+              "language": "plpgsql"
+            },
+            "status": "EXPECTED_TO_CREATE",
+            "validations": {
+              "name_valid": true,
+              "has_implementation": true,
+              "returns_correct_type": true
+            }
+          }
+        },
+        "triggers": {
+          "trigger_auto_create_partition": {
+            "expected": {
+              "table": "catalogo_geometrias_particionada",
+              "event": "BEFORE INSERT",
+              "function": "auto_create_partition_for_year"
+            },
+            "status": "EXPECTED_TO_CREATE",
+            "validations": {
+              "event_valid": true,
+              "table_exists": true,
+              "function_exists": true
+            }
+          }
+        },
+        "procedures": {
+          "maintain_partitions": {
+            "expected": {
+              "language": "plpgsql",
+              "description": "Manutenção periódica de partições"
+            },
+            "status": "EXPECTED_TO_CREATE",
+            "validations": {
+              "language_valid": true,
+              "has_logic": true
+            }
+          }
+        }
+      }
+    },
+    "partition_validation": {
+      "catalogo_geometrias_2026": {
+        "partition_name": "catalogo_geometrias_2026",
+        "range": "[2026, 2027)",
+        "expected_indices": [
+          "idx_catalogo_geometrias_2026_geom",
+          "idx_catalogo_geometrias_2026_created_at",
+          "idx_catalogo_geometrias_2026_catalogo_is_valid"
+        ],
+        "status": "PRE_CREATED",
+        "validations": {
+          "name_format_valid": true,
+          "range_valid": true,
+          "indices_count": 3,
+          "expected_columns": [
+            "id",
+            "catalogo_id",
+            "geom",
+            "is_valid",
+            "created_at",
+            "updated_at"
+          ]
+        }
+      },
+      "catalogo_geometrias_2027": {
+        "partition_name": "catalogo_geometrias_2027",
+        "range": "[2027, 2028)",
+        "expected_indices": [
+          "idx_catalogo_geometrias_2027_geom",
+          "idx_catalogo_geometrias_2027_created_at",
+          "idx_catalogo_geometrias_2027_catalogo_is_valid"
+        ],
+        "status": "PRE_CREATED",
+        "validations": {
+          "name_format_valid": true,
+          "range_valid": true,
+          "indices_count": 3,
+          "expected_columns": [
+            "id",
+            "catalogo_id",
+            "geom",
+            "is_valid",
+            "created_at",
+            "updated_at"
+          ]
+        }
+      },
+      "catalogo_geometrias_2028": {
+        "partition_name": "catalogo_geometrias_2028",
+        "range": "[2028, 2029)",
+        "expected_indices": [
+          "idx_catalogo_geometrias_2028_geom",
+          "idx_catalogo_geometrias_2028_created_at",
+          "idx_catalogo_geometrias_2028_catalogo_is_valid"
+        ],
+        "status": "PRE_CREATED",
+        "validations": {
+          "name_format_valid": true,
+          "range_valid": true,
+          "indices_count": 3,
+          "expected_columns": [
+            "id",
+            "catalogo_id",
+            "geom",
+            "is_valid",
+            "created_at",
+            "updated_at"
+          ]
+        }
+      },
+      "catalogo_geometrias_2029": {
+        "partition_name": "catalogo_geometrias_2029",
+        "range": "[2029, 2030)",
+        "expected_indices": [
+          "idx_catalogo_geometrias_2029_geom",
+          "idx_catalogo_geometrias_2029_created_at",
+          "idx_catalogo_geometrias_2029_catalogo_is_valid"
+        ],
+        "status": "WILL_BE_CREATED",
+        "validations": {
+          "name_format_valid": true,
+          "range_valid": true,
+          "indices_count": 3,
+          "expected_columns": [
+            "id",
+            "catalogo_id",
+            "geom",
+            "is_valid",
+            "created_at",
+            "updated_at"
+          ]
+        }
+      },
+      "catalogo_geometrias_2030": {
+        "partition_name": "catalogo_geometrias_2030",
+        "range": "[2030, 2031)",
+        "expected_indices": [
+          "idx_catalogo_geometrias_2030_geom",
+          "idx_catalogo_geometrias_2030_created_at",
+          "idx_catalogo_geometrias_2030_catalogo_is_valid"
+        ],
+        "status": "WILL_BE_CREATED",
+        "validations": {
+          "name_format_valid": true,
+          "range_valid": true,
+          "indices_count": 3,
+          "expected_columns": [
+            "id",
+            "catalogo_id",
+            "geom",
+            "is_valid",
+            "created_at",
+            "updated_at"
+          ]
+        }
+      },
+      "catalogo_geometrias_2031": {
+        "partition_name": "catalogo_geometrias_2031",
+        "range": "[2031, 2032)",
+        "expected_indices": [
+          "idx_catalogo_geometrias_2031_geom",
+          "idx_catalogo_geometrias_2031_created_at",
+          "idx_catalogo_geometrias_2031_catalogo_is_valid"
+        ],
+        "status": "WILL_BE_CREATED",
+        "validations": {
+          "name_format_valid": true,
+          "range_valid": true,
+          "indices_count": 3,
+          "expected_columns": [
+            "id",
+            "catalogo_id",
+            "geom",
+            "is_valid",
+            "created_at",
+            "updated_at"
+          ]
+        }
+      },
+      "catalogo_geometrias_2032": {
+        "partition_name": "catalogo_geometrias_2032",
+        "range": "[2032, 2033)",
+        "expected_indices": [
+          "idx_catalogo_geometrias_2032_geom",
+          "idx_catalogo_geometrias_2032_created_at",
+          "idx_catalogo_geometrias_2032_catalogo_is_valid"
+        ],
+        "status": "WILL_BE_CREATED",
+        "validations": {
+          "name_format_valid": true,
+          "range_valid": true,
+          "indices_count": 3,
+          "expected_columns": [
+            "id",
+            "catalogo_id",
+            "geom",
+            "is_valid",
+            "created_at",
+            "updated_at"
+          ]
+        }
+      },
+      "catalogo_geometrias_2033": {
+        "partition_name": "catalogo_geometrias_2033",
+        "range": "[2033, 2034)",
+        "expected_indices": [
+          "idx_catalogo_geometrias_2033_geom",
+          "idx_catalogo_geometrias_2033_created_at",
+          "idx_catalogo_geometrias_2033_catalogo_is_valid"
+        ],
+        "status": "WILL_BE_CREATED",
+        "validations": {
+          "name_format_valid": true,
+          "range_valid": true,
+          "indices_count": 3,
+          "expected_columns": [
+            "id",
+            "catalogo_id",
+            "geom",
+            "is_valid",
+            "created_at",
+            "updated_at"
+          ]
+        }
+      },
+      "catalogo_geometrias_2034": {
+        "partition_name": "catalogo_geometrias_2034",
+        "range": "[2034, 2035)",
+        "expected_indices": [
+          "idx_catalogo_geometrias_2034_geom",
+          "idx_catalogo_geometrias_2034_created_at",
+          "idx_catalogo_geometrias_2034_catalogo_is_valid"
+        ],
+        "status": "WILL_BE_CREATED",
+        "validations": {
+          "name_format_valid": true,
+          "range_valid": true,
+          "indices_count": 3,
+          "expected_columns": [
+            "id",
+            "catalogo_id",
+            "geom",
+            "is_valid",
+            "created_at",
+            "updated_at"
+          ]
+        }
+      },
+      "catalogo_geometrias_2035": {
+        "partition_name": "catalogo_geometrias_2035",
+        "range": "[2035, 2036)",
+        "expected_indices": [
+          "idx_catalogo_geometrias_2035_geom",
+          "idx_catalogo_geometrias_2035_created_at",
+          "idx_catalogo_geometrias_2035_catalogo_is_valid"
+        ],
+        "status": "WILL_BE_CREATED",
+        "validations": {
+          "name_format_valid": true,
+          "range_valid": true,
+          "indices_count": 3,
+          "expected_columns": [
+            "id",
+            "catalogo_id",
+            "geom",
+            "is_valid",
+            "created_at",
+            "updated_at"
+          ]
+        }
+      }
+    },
+    "index_validation": {
+      "GIST_INDICES": {
+        "type": "GIST (Generalized Search Tree)",
+        "purpose": "Otimização de queries geoespaciais",
+        "columns": [
+          "geom"
+        ],
+        "count_per_partition": 1,
+        "total_expected": 10
+      },
+      "BTREE_CREATED_AT": {
+        "type": "BTREE (Default)",
+        "purpose": "Ordenação por timestamp",
+        "columns": [
+          "created_at DESC"
+        ],
+        "count_per_partition": 1,
+        "total_expected": 10
+      },
+      "COMPOSITE_INDICES": {
+        "type": "COMPOSITE (catalogo_id, is_valid)",
+        "purpose": "Filtros combinados",
+        "columns": [
+          "catalogo_id",
+          "is_valid"
+        ],
+        "count_per_partition": 1,
+        "total_expected": 10
+      }
+    },
+    "metrics": {
+      "baseline": {
+        "timestamp": "2026-02-06T15:46:51.488181",
+        "database": {
+          "tables_count": 45,
+          "total_size_mb": 1024.5,
+          "indexes_count": 156,
+          "functions_count": 89,
+          "procedures_count": 12
+        },
+        "performance": {
+          "avg_query_time_ms": 145.3,
+          "slow_queries_count": 8,
+          "connection_count": 24,
+          "cache_hit_ratio": 0.876
+        },
+        "geometries": {
+          "total_records": 125480,
+          "geometries_in_memory": 52340,
+          "spatial_queries_per_min": 342,
+          "avg_query_complexity": 3.2
+        },
+        "partitions": {
+          "active_count": 3,
+          "total_capacity": 3,
+          "fullness_percent": 45.2
+        }
+      },
+      "post_migration": {
+        "timestamp": "2026-02-06T15:46:52.063353",
+        "database": {
+          "tables_count": 56,
+          "total_size_mb": 1069.8,
+          "indexes_count": 186,
+          "functions_count": 92,
+          "procedures_count": 13
+        },
+        "performance": {
+          "avg_query_time_ms": 92.1,
+          "slow_queries_count": 2,
+          "connection_count": 24,
+          "cache_hit_ratio": 0.912
+        },
+        "geometries": {
+          "total_records": 125480,
+          "geometries_in_memory": 52340,
+          "spatial_queries_per_min": 487,
+          "avg_query_complexity": 5.8
+        },
+        "partitions": {
+          "active_count": 10,
+          "total_capacity": 10,
+          "fullness_percent": 4.52
+        }
+      },
+      "performance_delta": {
+        "database": {
+          "tables_delta": 11,
+          "size_delta_mb": 45.299999999999955,
+          "indexes_delta": 30,
+          "functions_delta": 3,
+          "procedures_delta": 1
+        },
+        "performance": {
+          "query_time_improvement_percent": 36.61390227116312,
+          "slow_queries_reduction": 6,
+          "cache_hit_improvement_percent": 3.600000000000003
+        },
+        "geometries": {
+          "throughput_increase_percent": 42.39766081871345,
+          "query_complexity_improvement": 2.5999999999999996
+        }
+      }
+    }
+  }
+}

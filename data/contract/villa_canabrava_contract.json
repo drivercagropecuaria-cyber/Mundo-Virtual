@@ -1,0 +1,17 @@
+{
+  "expected_layers": 252,
+  "crs": "EPSG:4326",
+  "area_ha": 7729.26,
+  "perimeter_km": 58.21,
+  "bounds": {
+    "lon_min": -44.005069,
+    "lon_max": -43.884716,
+    "lat_min": -17.441287,
+    "lat_max": -17.312838
+  },
+  "tolerances": {
+    "area_ha_pct": 1,
+    "perimeter_km_pct": 1,
+    "bounds_deg": 0.01
+  }
+}

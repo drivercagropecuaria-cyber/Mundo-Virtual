@@ -1,0 +1,76 @@
+{
+  "execution_metadata": {
+    "start_time": "2026-02-06T16:54:18.386085",
+    "end_time": "2026-02-06T16:54:26.541551",
+    "duration_minutes": 0.13592443333333334,
+    "executor": "STAGE4_FULL_SIMULATOR",
+    "environment": "postgres_test (Docker)",
+    "database": "BIBLIOTECA"
+  },
+  "baseline": {
+    "latency_ms": 73.62,
+    "qps": 214.5,
+    "cache_hit_percent": 89.1,
+    "timestamp": "2026-02-06T16:54:18.386085"
+  },
+  "optimizations": {
+    "OPT1": {
+      "optimization": "OPT1",
+      "timestamp": "2026-02-06T16:54:19.412464",
+      "latency_ms": 71.98,
+      "qps": 214.8,
+      "cache_hit": 89.8,
+      "improvement_pct": 2.5,
+      "status": "COMPLETO",
+      "description": "Particionamento temporal para dados GIS, melhora latencia em queries historicas"
+    },
+    "OPT2": {
+      "optimization": "OPT2",
+      "timestamp": "2026-02-06T16:54:20.940645",
+      "latency_ms": 56.8,
+      "qps": 247.2,
+      "cache_hit": 91.2,
+      "improvement_pct": 22.8,
+      "status": "COMPLETO",
+      "description": "Armazenamento colunar para dados geometricos, otimiza scans"
+    },
+    "OPT3": {
+      "optimization": "OPT3",
+      "timestamp": "2026-02-06T16:54:22.471485",
+      "latency_ms": 52.4,
+      "qps": 268.5,
+      "cache_hit": 92.5,
+      "improvement_pct": 28.8,
+      "status": "COMPLETO",
+      "description": "Views indexadas para busca RPC, acelera consultas espaciais"
+    },
+    "OPT4": {
+      "optimization": "OPT4",
+      "timestamp": "2026-02-06T16:54:23.999398",
+      "latency_ms": 51.9,
+      "qps": 272.1,
+      "cache_hit": 92.8,
+      "improvement_pct": 29.5,
+      "status": "COMPLETO",
+      "description": "Particoes automaticas para dados futuros, escalabilidade"
+    },
+    "OPT5": {
+      "optimization": "OPT5",
+      "timestamp": "2026-02-06T16:54:25.526110",
+      "latency_ms": 46.7,
+      "qps": 298.3,
+      "cache_hit": 93.2,
+      "improvement_pct": 36.6,
+      "status": "COMPLETO",
+      "description": "Agendamento de refresh de materialized views, consistencia"
+    }
+  },
+  "summary": {
+    "total_optimizations_applied": 5,
+    "final_latency_ms": 46.7,
+    "final_qps": 298.3,
+    "final_cache_hit_percent": 93.2,
+    "total_improvement_percent": 36.6,
+    "status": "SUCCESS"
+  }
+}

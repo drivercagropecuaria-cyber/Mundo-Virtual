@@ -1,0 +1,119 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Size variants */
+.small {
+  padding: 6px 12px;
+  font-size: 12px;
+  min-height: 32px;
+}
+
+.medium {
+  padding: 10px 16px;
+  font-size: 14px;
+  min-height: 40px;
+}
+
+.large {
+  padding: 12px 20px;
+  font-size: 16px;
+  min-height: 48px;
+}
+
+/* Color variants */
+.primary {
+  background-color: #0066cc;
+  color: white;
+}
+
+.primary:hover:not(.disabled) {
+  background-color: #0052a3;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+}
+
+.primary:active:not(.disabled) {
+  background-color: #003f7a;
+}
+
+.secondary {
+  background-color: #f0f2f5;
+  color: #222;
+  border: 1px solid #d0d5e0;
+}
+
+.secondary:hover:not(.disabled) {
+  background-color: #e4e6eb;
+  border-color: #bcc0cc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.secondary:active:not(.disabled) {
+  background-color: #d8dce6;
+}
+
+.danger {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.danger:hover:not(.disabled) {
+  background-color: #b71c1c;
+  box-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
+}
+
+.danger:active:not(.disabled) {
+  background-color: #9a0000;
+}
+
+/* Disabled state */
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Loading spinner */
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.6s linear infinite;
+}
+
+.secondary .spinner {
+  border-color: rgba(0, 0, 0, 0.2);
+  border-top-color: #222;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+
+  .spinner {
+    animation: none;
+    border-top-color: currentColor;
+    opacity: 0.6;
+  }
+}

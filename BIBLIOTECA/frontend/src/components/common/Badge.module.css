@@ -1,0 +1,53 @@
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Success variant */
+.success {
+  background-color: #e8f5e9;
+  color: #1b5e20;
+}
+
+/* Warning variant */
+.warning {
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
+/* Danger variant */
+.danger {
+  background-color: #ffebee;
+  color: #b71c1c;
+}
+
+/* Info variant */
+.info {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+@media (prefers-contrast: more) {
+  .success {
+    border: 1px solid #1b5e20;
+  }
+
+  .warning {
+    border: 1px solid #e65100;
+  }
+
+  .danger {
+    border: 1px solid #b71c1c;
+  }
+
+  .info {
+    border: 1px solid #0d47a1;
+  }
+}
